@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.datesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.dateCard {
+  background: var(--bg-body);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.dateCardHighlight {
+  background: rgba(16, 185, 129, 0.06);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.dateLabel {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.dateValue {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.renewalsInfo {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.renewalsValue {
+  font-weight: 600;
+}
+
+.maxWarning {
+  padding: 10px 12px;
+  background: rgba(239, 68, 68, 0.06);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actionButton {
+  flex: 1;
+}
+
+.successContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.successTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.successSubtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.doneButton {
+  min-width: 160px;
+}
