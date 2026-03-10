@@ -1,0 +1,152 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bookPreview {
+  background: rgba(249, 115, 22, 0.06);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(249, 115, 22, 0.15);
+}
+
+.previewLabel {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.previewTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+}
+
+.previewId {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.buttonFlex1 {
+  flex: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.issuingLabel {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.dateGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.readOnlyDate {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.select,
+.textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-body);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.select {
+  cursor: pointer;
+}
+
+.textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.formActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.successContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.successIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.successTextContainer {
+  text-align: center;
+}
+
+.successTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.successSubtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.doneButton {
+  min-width: 160px;
+}
+
+@media (max-width: 768px) {
+  .dateGrid {
+    grid-template-columns: 1fr;
+  }
+  .buttonGroup {
+    flex-direction: column;
+  }
+}
