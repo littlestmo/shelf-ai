@@ -1,0 +1,34 @@
+.switch {
+  width: 40px;
+  height: 22px;
+  border-radius: 11px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.switchChecked {
+  background: var(--accent);
+}
+
+.switchUnchecked {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 3px;
+  transition: left 0.2s ease;
+}
+
+.thumbChecked {
+  left: 21px;
+}
+
+.thumbUnchecked {
+  left: 3px;
+}

@@ -1,0 +1,345 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.pageTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0;
+  font-family: var(--font-display);
+}
+
+.pageSubtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 4px 0 0;
+}
+
+.searchBarContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.searchInputWrapper {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-surface);
+  border-radius: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+
+.searchInput {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  width: 100%;
+  outline: none;
+}
+
+.filterToggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.filterToggleBtnActive {
+  background: var(--accent);
+  color: #fff;
+}
+
+.filterToggleBtnInactive {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}
+
+.layoutToggleContainer {
+  display: flex;
+  gap: 2px;
+  background: var(--bg-surface);
+  border-radius: 10px;
+  padding: 3px;
+  border: 1px solid var(--border);
+}
+
+.layoutToggleBtn {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.layoutToggleBtnActive {
+  background: var(--accent);
+  color: #fff;
+}
+
+.layoutToggleBtnInactive {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.filtersPanel {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg, 16px);
+  padding: 16px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.2s ease;
+}
+
+.filterSectionTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filterButtonsRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 5px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.filterBtnActive {
+  background: var(--accent);
+  color: #fff;
+}
+
+.filterBtnInactive {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.filtersGrid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.resultsCountContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resultsCountText {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.emptyStateContainer {
+  padding: 60px 24px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.emptyStateIcon {
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+
+.emptyStateTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.emptyStateSubtitle {
+  font-size: 0.82rem;
+  margin-top: 4px;
+}
+
+.bookGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.bookGridCard {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg, 16px);
+  padding: 16px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.bookGridCoverWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.bookTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bookGridTitle {
+  margin-bottom: 2px;
+}
+
+.bookGridAuthor {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.bookGridMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.bookRating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #f59e0b;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.bookGridRating {
+  flex-shrink: 0;
+}
+
+.bookGridAvailability {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.bookAvailable {
+  color: var(--stat-green);
+}
+
+.bookUnavailable {
+  color: var(--stat-red);
+}
+
+.bookList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bookListCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.bookListInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.bookListSubtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.bookListRating {
+  flex-shrink: 0;
+}
+
+.bookListAvailability {
+  font-size: 0.72rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.paginationNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.paginationBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.paginationBtnArrow {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}
+
+.paginationBtnArrowAllowed {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.paginationBtnArrowDisabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.paginationBtnPage {
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.paginationBtnPageActive {
+  background: var(--accent);
+  color: #fff;
+}
+
+.paginationBtnPageInactive {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}

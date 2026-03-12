@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.searchFilterContainer {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.bookCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bookTitle {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.bookAuthor {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.isbnText {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.actionCell {
+  display: flex;
+  gap: 8px;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.editButton {
+  color: var(--accent);
+}
+
+.deleteButton {
+  color: var(--stat-red);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.formGrid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.formGrid3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.marginRight {
+  margin-right: 6px;
+}
+
+@media (max-width: 768px) {
+  .formGrid2,
+  .formGrid3 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

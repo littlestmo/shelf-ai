@@ -1,0 +1,111 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s;
+}
+
+.buttonHasValue {
+  color: var(--text-primary);
+}
+
+.buttonPlaceholder {
+  color: var(--text-muted);
+}
+
+.buttonOpen {
+  outline: 2px solid var(--primary, #f97316);
+}
+
+.buttonClosed {
+  outline: none;
+}
+
+.icon {
+  color: var(--text-muted);
+}
+
+.popover {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 4px);
+  left: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.5),
+    0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popover :global(.rdp-root) {
+  --rdp-accent-color: #f97316;
+  --rdp-background-color: var(--bg-surface-hover, rgba(255, 255, 255, 0.05));
+  --rdp-accent-color-dark: #ea580c;
+  --rdp-background-color-dark: rgba(255, 255, 255, 0.1);
+  --rdp-outline: 2px solid var(--rdp-accent-color);
+  --rdp-outline-offset: 2px;
+  --rdp-day-color: var(--text-primary);
+  margin: 0;
+}
+
+.popover :global(.rdp-day) {
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.popover :global(.rdp-day_selected) {
+  background-color: var(--rdp-accent-color) !important;
+  color: white !important;
+}
+
+.popover :global(.rdp-day:hover:not(.rdp-day_selected)) {
+  background-color: var(--rdp-background-color);
+}
+
+.popover :global(.rdp-nav_button) {
+  color: var(--text-muted);
+}
+
+.popover :global(.rdp-nav_button:hover) {
+  color: var(--text-primary);
+  background-color: var(--rdp-background-color);
+}
+
+.popover :global(.rdp-caption_label) {
+  font-family: var(--font-display, inherit);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.popover :global(.rdp-head_cell) {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+}

@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pillSelected {
+  background: var(--accent);
+  color: #fff;
+}
+
+.pillUnselected {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+}

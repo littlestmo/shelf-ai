@@ -1,0 +1,639 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "books": "Books",
+    "users": "Users",
+    "branches": "Branches",
+    "catalog": "Catalog",
+    "aiGenerate": "AI Generate",
+    "home": "Home",
+    "search": "Search",
+    "shelf": "My Shelf",
+    "aiSearch": "AI Search",
+    "contribute": "Contribute",
+    "profile": "Profile"
+  },
+  "action": {
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "checkout": "Check Out",
+    "checkin": "Check In",
+    "renew": "Renew",
+    "suspend": "Suspend",
+    "activate": "Activate"
+  },
+  "label": {
+    "title": "Title",
+    "author": "Author",
+    "isbn": "ISBN",
+    "category": "Category",
+    "publisher": "Publisher",
+    "year": "Year",
+    "copies": "Copies",
+    "location": "Location",
+    "branch": "Branch",
+    "description": "Description",
+    "pages": "Pages",
+    "language": "Language",
+    "format": "Format",
+    "status": "Status",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "city": "City",
+    "manager": "Manager",
+    "openHours": "Open Hours",
+    "role": "Role",
+    "membership": "Membership",
+    "dueDate": "Due Date",
+    "borrowDate": "Borrow Date",
+    "available": "Available",
+    "overdue": "Overdue",
+    "notifications": "Notifications",
+    "totalBooks": "Total Books",
+    "totalMembers": "Total Members",
+    "noResults": "No results found",
+    "searchPlaceholder": "Search..."
+  },
+  "page": {
+    "addBook": "Add Book",
+    "editBook": "Edit Book",
+    "addBranch": "Add Branch",
+    "booksInLibrary": "books in the library",
+    "registeredUsers": "registered users",
+    "libraryBranches": "library branches",
+    "booksFound": "books found",
+    "newArrivals": "New Arrivals",
+    "recommended": "Recommended for You",
+    "currentlyBorrowed": "Currently Borrowed",
+    "noActiveBorrows": "No active borrows",
+    "noNewNotifications": "No new notifications"
+  },
+  "ui": {
+    "availability": {
+      "available": "Available",
+      "unavailable": "Unavailable"
+    },
+    "bookCard": {
+      "rating": "Rating {{rating}} out of 5",
+      "category": "Category",
+      "status": "Status: {{status}}"
+    },
+    "pagination": {
+      "navAriaLabel": "Pagination",
+      "previousPage": "Previous page",
+      "nextPage": "Next page",
+      "pageAriaLabel": "Page {{page}}"
+    },
+    "datePicker": {
+      "placeholder": "Select Date"
+    },
+    "borrowModal": {
+      "title": "Issue Book",
+      "previewLabel": "You are about to borrow",
+      "bookId": "Book ID: {{id}}",
+      "confirmParams": "Confirm Book",
+      "issuingLabel": "Issuing:",
+      "fromDate": "From Date",
+      "returnBy": "Return By",
+      "format": "Format",
+      "purposeLabel": "Purpose (optional)",
+      "purposePlaceholder": "Reason for borrowing...",
+      "back": "Back",
+      "issueBook": "Issue Book",
+      "successTitle": "Book Issued Successfully",
+      "successSubtitle": "Return by: {{date}}",
+      "done": "Done"
+    },
+    "returnModal": {
+      "title": "Return Book",
+      "confirmMessage": "Confirm return of",
+      "overdueFine": "Overdue Fine",
+      "overdueNotice": "Late return fee will be applied to your account",
+      "confirmReturn": "Confirm Return",
+      "rateTitle": "Rate your experience with this book",
+      "rateTipEmpty": "Tap a star to rate",
+      "rateTipFilled": "You rated {{rating}}/5",
+      "skip": "Skip",
+      "submitRating": "Submit Rating",
+      "successTitle": "Book Returned Successfully",
+      "successSubtitle": "Thank you for rating: {{rating}}/5 ★"
+    },
+    "renewModal": {
+      "title": "Reissue Book",
+      "confirmMessage": "Renew {{title}} for 14 more days?",
+      "currentDueDate": "Current Due Date",
+      "newDueDate": "New Due Date",
+      "renewalsUsed": "Renewals Used",
+      "maxWarning": "Maximum renewals reached. Please return the book.",
+      "confirmRenewal": "Confirm Renewal",
+      "successTitle": "Book Reissued Successfully",
+      "successSubtitle": "New due date: {{date}}"
+    },
+    "studentCard": {
+      "ariaLabel": "Student Library Card",
+      "title": "Shelf AI Library",
+      "subtitle": "Empowering Dreams, Inspiring Futures",
+      "photoAlt": "Profile photo of {{name}}",
+      "photoPlaceholder": "Profile photo placeholder for {{name}}",
+      "studentId": "Student ID",
+      "fullName": "Full Name",
+      "department": "Department",
+      "dateOfIssue": "Date of Issue",
+      "contactNo": "Contact no",
+      "scanBarcode": "Scan barcode for ID {{id}}",
+      "support": "Library Support: +1 (800) 456-7890",
+      "website": "Website: https://shelfai.up.railway.app"
+    },
+    "searchInput": {
+      "placeholder": "Search..."
+    },
+    "themeToggle": {
+      "ariaLabel": "Toggle theme"
+    },
+    "tabNavigation": {
+      "ariaLabel": "Data views"
+    },
+    "dataTable": {
+      "emptyMessage": "No data found",
+      "pageOf": "Page {{current}} of {{total}}",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "dashboardShell": {
+      "searchPlaceholder": "Search...",
+      "mainNav": "Main navigation",
+      "expandSidebar": "Expand sidebar",
+      "collapseSidebar": "Collapse sidebar",
+      "toggleSidebar": "Toggle sidebar",
+      "globalSearch": "Global search",
+      "notifications": "Notifications"
+    },
+    "bookShelf": {
+      "ariaLabel": "Book shelf with your borrowed books",
+      "emptyState": "Your bookshelf is empty. Borrow some books to fill it up!"
+    },
+    "filterPills": {
+      "ariaLabel": "Filter options",
+      "all": "All"
+    },
+    "languageToggle": {
+      "ariaLabel": "Toggle language"
+    }
+  },
+  "admin": {
+    "layout": {
+      "dashboard": "Dashboard",
+      "books": "Books",
+      "users": "Users",
+      "branches": "Branches",
+      "catalog": "Catalog",
+      "aiGenerate": "AI Generate",
+      "brandSub": "Admin Panel",
+      "searchPlaceholder": "Search anything...",
+      "footer": "Shelf AI v1.0"
+    },
+    "auth": {
+      "signIn": {
+        "title": "Shelf AI Admin",
+        "subtitle": "Secure Management Portal"
+      },
+      "signUp": {
+        "title": "System Access",
+        "subtitle": "Register Admin Privileges"
+      }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Library overview at a glance",
+      "stats": {
+        "totalBooks": "Total Books",
+        "activeUsers": "Active Users",
+        "activeBorrows": "Active Borrows",
+        "overdue": "Overdue"
+      },
+      "categoryDist": "Category Distribution",
+      "recentBorrows": "Recent Borrows",
+      "noRecords": "No borrow records yet"
+    },
+    "books": {
+      "title": "Books",
+      "subtitle": "{{count}} books in the library",
+      "addBook": "Add Book",
+      "search": "Search books...",
+      "noBooks": "No books found",
+      "editBook": "Edit Book",
+      "columns": {
+        "book": "Book",
+        "isbn": "ISBN",
+        "category": "Category",
+        "status": "Status",
+        "available": "Available"
+      },
+      "form": {
+        "title": "Title",
+        "author": "Author",
+        "isbn": "ISBN",
+        "category": "Category",
+        "selectCategory": "Select category",
+        "publisher": "Publisher",
+        "publishedDate": "Published Date",
+        "selectDate": "Select date",
+        "copies": "Copies",
+        "location": "Location",
+        "branch": "Branch",
+        "selectBranch": "Select branch",
+        "description": "Description",
+        "pages": "Pages",
+        "language": "Language",
+        "format": "Format",
+        "selectFormat": "Select format",
+        "cancel": "Cancel",
+        "add": "Add Book",
+        "update": "Update Book"
+      }
+    },
+    "users": {
+      "title": "Users",
+      "subtitle": "{{count}} registered users",
+      "search": "Search users...",
+      "noUsers": "No users found",
+      "columns": {
+        "user": "User",
+        "role": "Role",
+        "membership": "Membership",
+        "limit": "Limit",
+        "status": "Status"
+      },
+      "actions": {
+        "suspend": "Suspend",
+        "activate": "Activate"
+      }
+    },
+    "branches": {
+      "title": "Branches",
+      "subtitle": "{{count}} library branches",
+      "addBranch": "Add Branch",
+      "details": {
+        "books": "Books",
+        "members": "Members",
+        "manager": "Manager"
+      },
+      "form": {
+        "name": "Name",
+        "address": "Address",
+        "city": "City",
+        "phone": "Phone",
+        "email": "Email",
+        "manager": "Manager",
+        "openHours": "Open Hours",
+        "cancel": "Cancel",
+        "add": "Add Branch"
+      }
+    },
+    "catalog": {
+      "title": "Catalog",
+      "subtitle": "Borrow records",
+      "stats": {
+        "active": "Active",
+        "returned": "Returned",
+        "overdue": "Overdue",
+        "total": "Total"
+      },
+      "search": "Search records...",
+      "noRecords": "No records found",
+      "columns": {
+        "book": "Book",
+        "user": "User",
+        "borrowDate": "Borrow Date",
+        "dueDate": "Due Date",
+        "status": "Status"
+      },
+      "actions": {
+        "checkIn": "Check In"
+      },
+      "modal": {
+        "title": "Check In Book",
+        "confirm": "Confirm return for this borrow record?",
+        "cancel": "Cancel",
+        "submit": "Confirm Check In"
+      }
+    },
+    "aiGenerate": {
+      "title": "AI Generate",
+      "subtitle": "Create books with AI or add manually",
+      "tabs": {
+        "ai": "AI Generate",
+        "manual": "Manual Upload"
+      },
+      "ai": {
+        "promptTitle": "Describe your book",
+        "placeholder": "A thrilling mystery set in Victorian London where a detective must solve a series of impossible crimes...",
+        "generate": "Generate",
+        "by": "by {{author}}",
+        "synopsis": "Synopsis",
+        "chapters": "Chapters"
+      },
+      "manual": {
+        "select": "Select",
+        "add": "Add Book"
+      }
+    }
+  },
+  "user": {
+    "layout": {
+      "menu": {
+        "home": "Home",
+        "search": "Search",
+        "shelf": "My Shelf",
+        "aiSearch": "AI Search",
+        "contribute": "Contribute",
+        "profile": "Profile"
+      },
+      "brandPrefix": "My ",
+      "brandHighlight": "Book",
+      "brandSub": "S h e l f",
+      "searchPlaceholder": "Search books...",
+      "footer": {
+        "about": "About",
+        "support": "Support",
+        "terms": "Terms & Condition"
+      }
+    },
+    "auth": {
+      "signIn": {
+        "title": "Shelf AI",
+        "subtitle": "Your AI-powered library"
+      },
+      "signUp": {
+        "title": "Join Shelf AI",
+        "subtitle": "Create your library profile"
+      }
+    },
+    "home": {
+      "greeting": {
+        "morning": "Good Morning",
+        "afternoon": "Good Afternoon",
+        "evening": "Good Evening",
+        "welcome": "{{greeting}}, {{name}}!",
+        "borrowsStatus": "You have {{active}} active borrow(s){{overdueText}}.",
+        "andOverdue": " and {{overdue}} overdue"
+      },
+      "quote": "There is more treasure in books than in all the pirate's loot on Treasure Island.",
+      "quoteAuthor": "Walt Disney",
+      "stats": {
+        "totalBooks": "Total Books",
+        "inLibrary": "{{count}} in library",
+        "activeBorrows": "Active Borrows",
+        "dueThisWeek": "Due this week",
+        "returned": "Returned",
+        "allOnTime": "All on time",
+        "overdue": "Overdue",
+        "borrowed": "Borrowed",
+        "returnImmediately": "Return immediately",
+        "none": "None",
+        "borrowActivity": "Borrowing Activity",
+        "borrowActivitySub": "Monthly borrow, return and overdue trend",
+        "byCategory": "By Category",
+        "categorySub": "Distribution of books in library",
+        "monthlyOverview": "Monthly Overview",
+        "monthlyOverviewSub": "Books borrowed vs returned per month"
+      },
+      "sections": {
+        "currentlyBorrowed": "Currently Borrowed",
+        "showAll": "Show All",
+        "noActiveBorrows": "No active borrows.",
+        "overdue": "Overdue",
+        "due": "Due: {{date}}",
+        "notifications": "Notifications",
+        "markAllRead": "Mark all read",
+        "noNotifications": "No notifications.",
+        "recommended": "Recommended For You"
+      }
+    },
+    "search": {
+      "title": "Library Catalog",
+      "subtitle": "{{count}} books in collection",
+      "searchPlaceholder": "Search by title, author, or ISBN...",
+      "filters": {
+        "title": "Filters",
+        "category": "Category",
+        "format": "Format",
+        "status": "Status",
+        "all": "All",
+        "hardcopy": "Hardcopy",
+        "ebook": "E-Book",
+        "audiobook": "Audiobook",
+        "available": "Available",
+        "borrowed": "Borrowed"
+      },
+      "results": {
+        "count_one": "{{count}} result",
+        "count_other": "{{count}} results",
+        "emptyTitle": "No books found",
+        "emptySubtitle": "Try adjusting your search or filters",
+        "copiesAvailable": "{{count}} available",
+        "unavailable": "Unavailable",
+        "out": "Out"
+      }
+    },
+    "aiSearch": {
+      "title": "AI Search",
+      "subtitle": "Find books using natural language",
+      "searchPlaceholder": "Ask anything about books...",
+      "searchButton": "Search",
+      "randomDiscovery": "Random discovery",
+      "suggestions": [
+        "Books about space exploration",
+        "Classic novels for beginners",
+        "Best mystery thrillers of all time",
+        "Self-improvement and productivity",
+        "Philosophy books for everyday life",
+        "Fantasy worlds with magic systems"
+      ],
+      "emptyTitle": "Start your AI-powered search",
+      "emptySubtitle": "Type a query or click a suggestion above"
+    },
+    "shelf": {
+      "title": "My Shelf",
+      "stats": "{{active}} active · {{overdue}} overdue",
+      "view": {
+        "shelf": "Shelf View",
+        "list": "List View"
+      },
+      "filters": {
+        "all": "All",
+        "active": "Active",
+        "overdue": "Overdue",
+        "returned": "Returned"
+      },
+      "alerts": {
+        "overdueTitle": "{{count}} Overdue Book{{s}}",
+        "overdueDesc": "Return overdue books to avoid additional fines"
+      },
+      "emptyState": "No records found for this filter.",
+      "record": {
+        "overdueDays": "{{days}} days overdue",
+        "daysLeft": "{{days}} days left",
+        "returnedOn": "Returned: {{date}}",
+        "renew": "Renew",
+        "return": "Return",
+        "unknownBook": "Unknown Book"
+      }
+    },
+    "bookDetails": {
+      "notFound": "Book Not Found",
+      "browseLibrary": "Browse Library",
+      "issuedMsg": "{{title}} has been issued to you.",
+      "formats": {
+        "ebook": "E-Book",
+        "audiobook": "Audiobook",
+        "hardcopy": "Hard Copy"
+      },
+      "back": "Back",
+      "by": "by",
+      "pages": "{{count}} pages",
+      "na": "N/A",
+      "availability": "{{available}}/{{total}} available",
+      "actions": {
+        "borrow": "Borrow Book",
+        "alreadyBorrowed": "Already Borrowed",
+        "unavailable": "Unavailable",
+        "readEbook": "Read E-Book",
+        "audiobook": "Audiobook"
+      },
+      "tabs": {
+        "overview": "Overview",
+        "details": "Details"
+      },
+      "overview": {
+        "isbn": "ISBN",
+        "publisher": "Publisher",
+        "published": "Published",
+        "language": "Language",
+        "english": "English",
+        "edition": "Edition",
+        "firstEdition": "First Edition",
+        "shelfLocation": "Shelf Location",
+        "branch": "Branch",
+        "formats": "Formats"
+      },
+      "details": {
+        "title": "Availability & Copies",
+        "total": "Total",
+        "available": "Available",
+        "checkedOut": "Checked Out"
+      }
+    },
+    "contribute": {
+      "title": "Contribute",
+      "subtitle": "Donate or submit books to the library",
+      "modes": {
+        "upload": "Upload File",
+        "manual": "Manual Entry"
+      },
+      "upload": {
+        "dragDrop": "Drag & drop your file here",
+        "supports": "Supports PDF and EPUB files up to 50MB",
+        "browseFiles": "Browse Files",
+        "remove": "Remove"
+      },
+      "form": {
+        "title": "Title",
+        "author": "Author",
+        "isbn": "ISBN",
+        "category": "Category",
+        "selectCategory": "Select category",
+        "publisher": "Publisher",
+        "publishedDate": "Published Date",
+        "selectDate": "Select date",
+        "copies": "Copies",
+        "location": "Location",
+        "branch": "Branch",
+        "selectBranch": "Select branch",
+        "description": "Description",
+        "submit": "Submit Book"
+      }
+    },
+    "profile": {
+      "title": "Profile",
+      "subtitle": "Manage your library account and settings",
+      "tabs": {
+        "account": "Account Setting",
+        "security": "Login & Security",
+        "notifications": "Notifications",
+        "interface": "Interface"
+      },
+      "account": {
+        "avatarTitle": "Your Profile Picture",
+        "uploadPhoto": "Upload New photo",
+        "fullName": "Full Name",
+        "email": "College Email ID",
+        "registerNum": "Register Number",
+        "phone": "Phone Number",
+        "department": "Department",
+        "bio": "Bio",
+        "bioPlaceholder": "Tell us about yourself...",
+        "update": "Update Profile",
+        "reset": "Reset"
+      },
+      "security": {
+        "passwordTitle": "Password Management",
+        "passwordDesc": "Your authentication and password security are managed securely through Clerk. Click the button below to open your account portal.",
+        "managePassword": "Manage Password in Clerk",
+        "tfaTitle": "Two-Factor Authentication",
+        "tfaDesc": "Add an extra layer of security to your account by enabling two-factor authentication.",
+        "enableTfa": "Enable 2FA"
+      },
+      "notifications": {
+        "emailLabel": "Email Notifications",
+        "emailDesc": "Receive important updates and receipts via email",
+        "pushLabel": "Push Notifications",
+        "pushDesc": "Get real-time browser push notifications",
+        "overdueLabel": "Overdue Alerts",
+        "overdueDesc": "Notify me immediately when books are overdue",
+        "availableLabel": "Availability Alerts",
+        "availableDesc": "Notify me when reserved or wanted books become available",
+        "newsletterLabel": "Newsletter",
+        "newsletterDesc": "Subscribe to the weekly library catalog newsletter"
+      },
+      "interface": {
+        "themeTitle": "Application Theme",
+        "themes": {
+          "dark": "Dark",
+          "light": "Light",
+          "system": "System"
+        },
+        "langTitle": "Language Preferences",
+        "languages": {
+          "en": "English",
+          "ar": "Arabic"
+        }
+      }
+    },
+    "read": {
+      "notices": {
+        "pushedNext": "Advanced to next chapter",
+        "pushedPrev": "Returned to previous chapter"
+      },
+      "loading": "Loading Reader...",
+      "readerAria": "Distraction-free E-Book Reader",
+      "closeAria": "Close reader and return to library",
+      "close": "Close",
+      "bookmarkAria": "Add Bookmark",
+      "settingsAria": "Reader Settings",
+      "fullscreenAria": "Toggle Fullscreen",
+      "prevChapter": "Previous Chapter",
+      "nextChapter": "Next Chapter",
+      "progressAria": "Reading progress tracker",
+      "timeLeft": "~45 mins left in chapter"
+    }
+  }
+}
