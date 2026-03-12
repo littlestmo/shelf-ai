@@ -1,0 +1,42 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.leftPane {
+  flex: 1 1 50%;
+  min-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0b132b 0%, #1c2541 100%);
+  padding: 40px;
+}
+
+.rightPane {
+  flex: 1 1 50%;
+  min-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  padding: 40px;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .leftPane {
+    display: none;
+  }
+  .rightPane {
+    flex: 1 1 100%;
+    padding: 24px;
+  }
+}

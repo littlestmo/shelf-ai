@@ -1,0 +1,79 @@
+.control {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+  min-height: 42px !important;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+.controlFocused {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15) !important;
+}
+
+.control:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.controlFocused:hover {
+  border-color: var(--accent) !important;
+}
+
+.menu {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  box-shadow: var(--shadow-md) !important;
+  z-index: 100 !important;
+}
+
+.option {
+  background-color: transparent !important;
+  color: var(--text-primary) !important;
+  cursor: pointer !important;
+  padding: 10px 14px !important;
+}
+
+.optionFocused {
+  background-color: var(--bg-surface-hover) !important;
+}
+
+.optionSelected {
+  background-color: var(--accent) !important;
+  color: #fff !important;
+}
+
+.option:active {
+  background-color: var(--accent-hover) !important;
+}
+
+.singleValue {
+  color: var(--text-primary) !important;
+  font-size: 0.85rem !important;
+}
+
+.input {
+  color: var(--text-primary) !important;
+  font-size: 0.85rem !important;
+}
+
+.placeholder {
+  color: var(--text-muted) !important;
+  font-size: 0.85rem !important;
+}
+
+.indicatorSeparator {
+  background-color: var(--border-subtle) !important;
+}
+
+.dropdownIndicator {
+  color: var(--text-muted) !important;
+}
+
+.dropdownIndicator:hover {
+  color: var(--text-secondary) !important;
+}

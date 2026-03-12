@@ -1,0 +1,90 @@
+.card {
+  background: var(--bg-surface, rgba(255, 255, 255, 0.03));
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.label {
+  font-size: 0.78rem;
+  color: var(--text-muted, #64748b);
+  font-weight: 500;
+}
+
+.iconWrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary, #e2e8f0);
+  line-height: 1;
+}
+
+.trendContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.trendIconPositive {
+  color: #10b981;
+  transform: none;
+}
+
+.trendIconNegative {
+  color: #ef4444;
+  transform: rotate(180deg);
+}
+
+.trendTextPositive {
+  font-size: 0.72rem;
+  color: #10b981;
+  font-weight: 500;
+}
+
+.trendTextNegative {
+  font-size: 0.72rem;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 16px;
+  }
+  .value {
+    font-size: 1.3rem;
+  }
+  .header {
+    margin-bottom: 8px;
+  }
+}

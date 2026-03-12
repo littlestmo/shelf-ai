@@ -1,0 +1,19 @@
+.brandHighlight {
+  color: var(--accent);
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footerLink {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.footerTerms {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}

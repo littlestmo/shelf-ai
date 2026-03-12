@@ -1,0 +1,643 @@
+{
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "books": "الكتب",
+    "users": "المستخدمون",
+    "branches": "الفروع",
+    "catalog": "الفهرس",
+    "aiGenerate": "توليد بالذكاء",
+    "home": "الرئيسية",
+    "search": "بحث",
+    "shelf": "رفي",
+    "aiSearch": "بحث ذكي",
+    "contribute": "المساهمة",
+    "profile": "الملف الشخصي"
+  },
+  "action": {
+    "add": "إضافة",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "submit": "إرسال",
+    "search": "بحث",
+    "filter": "تصفية",
+    "checkout": "استعارة",
+    "checkin": "إرجاع",
+    "renew": "تجديد",
+    "suspend": "تعليق",
+    "activate": "تفعيل"
+  },
+  "label": {
+    "title": "العنوان",
+    "author": "المؤلف",
+    "isbn": "ردمك",
+    "category": "التصنيف",
+    "publisher": "الناشر",
+    "year": "السنة",
+    "copies": "النسخ",
+    "location": "الموقع",
+    "branch": "الفرع",
+    "description": "الوصف",
+    "pages": "الصفحات",
+    "language": "اللغة",
+    "format": "التنسيق",
+    "status": "الحالة",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "address": "العنوان",
+    "city": "المدينة",
+    "manager": "المدير",
+    "openHours": "ساعات العمل",
+    "role": "الدور",
+    "membership": "العضوية",
+    "dueDate": "تاريخ الاستحقاق",
+    "borrowDate": "تاريخ الاستعارة",
+    "available": "متاح",
+    "overdue": "متأخر",
+    "notifications": "الإشعارات",
+    "totalBooks": "إجمالي الكتب",
+    "totalMembers": "إجمالي الأعضاء",
+    "noResults": "لا توجد نتائج",
+    "searchPlaceholder": "بحث..."
+  },
+  "page": {
+    "addBook": "إضافة كتاب",
+    "editBook": "تعديل كتاب",
+    "addBranch": "إضافة فرع",
+    "booksInLibrary": "كتاب في المكتبة",
+    "registeredUsers": "مستخدم مسجل",
+    "libraryBranches": "فروع المكتبة",
+    "booksFound": "كتاب تم العثور عليه",
+    "newArrivals": "وصل حديثاً",
+    "recommended": "موصى به لك",
+    "currentlyBorrowed": "مستعار حالياً",
+    "noActiveBorrows": "لا توجد استعارات نشطة",
+    "noNewNotifications": "لا توجد إشعارات جديدة"
+  },
+  "ui": {
+    "availability": {
+      "available": "متاح",
+      "unavailable": "غير متاح"
+    },
+    "bookCard": {
+      "rating": "التقييم {{rating}} من 5",
+      "category": "الفئة",
+      "status": "الحالة: {{status}}"
+    },
+    "pagination": {
+      "navAriaLabel": "ترقيم الصفحات",
+      "previousPage": "الصفحة السابقة",
+      "nextPage": "الصفحة التالية",
+      "pageAriaLabel": "الصفحة {{page}}"
+    },
+    "datePicker": {
+      "placeholder": "حدد تاريخاً"
+    },
+    "borrowModal": {
+      "title": "إصدار كتاب",
+      "previewLabel": "أنت على وشك استعارة",
+      "bookId": "رقم الكتاب: {{id}}",
+      "confirmParams": "تأكيد الكتاب",
+      "issuingLabel": "إصدار:",
+      "fromDate": "من تاريخ",
+      "returnBy": "الإرجاع بحلول",
+      "format": "التنسيق",
+      "purposeLabel": "الغرض (اختياري)",
+      "purposePlaceholder": "سبب الاستعارة...",
+      "back": "رجوع",
+      "issueBook": "إصدار الكتاب",
+      "successTitle": "تم إصدار الكتاب بنجاح",
+      "successSubtitle": "الإرجاع بحلول: {{date}}",
+      "done": "تم"
+    },
+    "returnModal": {
+      "title": "إرجاع كتاب",
+      "confirmMessage": "تأكيد إرجاع",
+      "overdueFine": "غرامة التأخير",
+      "overdueNotice": "سيتم تطبيق رسوم التأخير على حسابك",
+      "confirmReturn": "تأكيد الإرجاع",
+      "rateTitle": "قيم تجربتك مع هذا الكتاب",
+      "rateTipEmpty": "اضغط على نجمة للتقييم",
+      "rateTipFilled": "لقد قيمت {{rating}}/5",
+      "skip": "تخطي",
+      "submitRating": "إرسال التقييم",
+      "successTitle": "تم إرجاع الكتاب بنجاح",
+      "successSubtitle": "شكراً لتقييمك: {{rating}}/5 ★"
+    },
+    "renewModal": {
+      "title": "إعادة إصدار كتاب",
+      "confirmMessage": "تجديد {{title}} لمدة 14 يوماً إضافياً؟",
+      "currentDueDate": "تاريخ الاستحقاق الحالي",
+      "newDueDate": "تاريخ الاستحقاق الجديد",
+      "renewalsUsed": "التجديدات المستخدمة",
+      "maxWarning": "تم الوصول للحد الأقصى للتجديدات. يرجى إرجاع الكتاب.",
+      "confirmRenewal": "تأكيد التجديد",
+      "successTitle": "تمت إعادة إصدار الكتاب بنجاح",
+      "successSubtitle": "تاريخ الاستحقاق الجديد: {{date}}"
+    },
+    "studentCard": {
+      "ariaLabel": "بطاقة مكتبة الطالب",
+      "title": "مكتبة Shelf AI",
+      "subtitle": "تمكين الأحلام، إلهام المستقبل",
+      "photoAlt": "الصورة الشخصية لـ {{name}}",
+      "photoPlaceholder": "مكان الصورة الشخصية لـ {{name}}",
+      "studentId": "رقم الطالب",
+      "fullName": "الاسم الكامل",
+      "department": "القسم",
+      "dateOfIssue": "تاريخ الإصدار",
+      "contactNo": "رقم الاتصال",
+      "scanBarcode": "مسح الباركود للرقم {{id}}",
+      "support": "دعم المكتبة: +1 (800) 456-7890",
+      "website": "الموقع: https://shelfai.up.railway.app"
+    },
+    "searchInput": {
+      "placeholder": "بحث..."
+    },
+    "themeToggle": {
+      "ariaLabel": "تبديل المظهر"
+    },
+    "tabNavigation": {
+      "ariaLabel": "طرق عرض البيانات"
+    },
+    "dataTable": {
+      "emptyMessage": "لا توجد بيانات",
+      "pageOf": "صفحة {{current}} من {{total}}",
+      "previous": "السابق",
+      "next": "التالي"
+    },
+    "dashboardShell": {
+      "searchPlaceholder": "بحث...",
+      "mainNav": "التنقل الرئيسي",
+      "expandSidebar": "توسيع الشريط الجانبي",
+      "collapseSidebar": "طي الشريط الجانبي",
+      "toggleSidebar": "تبديل الشريط الجانبي",
+      "globalSearch": "بحث شامل",
+      "notifications": "الإشعارات"
+    },
+    "bookShelf": {
+      "ariaLabel": "رف كتب يحتوي على كتبك المستعارة",
+      "emptyState": "رف الكتب الخاص بك فارغ. استعر بعض الكتب لملئه!"
+    },
+    "filterPills": {
+      "ariaLabel": "خيارات التصفية",
+      "all": "الكل"
+    },
+    "languageToggle": {
+      "ariaLabel": "تغيير اللغة"
+    }
+  },
+  "admin": {
+    "layout": {
+      "dashboard": "لوحة القيادة",
+      "books": "الكتب",
+      "users": "المستخدمين",
+      "branches": "الفروع",
+      "catalog": "الفهرس",
+      "aiGenerate": "توليد بالذكاء الاصطناعي",
+      "brandSub": "لوحة الإدارة",
+      "searchPlaceholder": "ابحث عن أي شيء...",
+      "footer": "مكتبة Shelf AI الإصدار 1.0"
+    },
+    "auth": {
+      "signIn": {
+        "title": "مسؤول Shelf AI",
+        "subtitle": "بوابة الإدارة الآمنة"
+      },
+      "signUp": {
+        "title": "الوصول إلى النظام",
+        "subtitle": "تسجيل امتيازات المسؤول"
+      }
+    },
+    "dashboard": {
+      "title": "لوحة القيادة",
+      "subtitle": "نظرة عامة على المكتبة",
+      "stats": {
+        "totalBooks": "إجمالي الكتب",
+        "activeUsers": "المستخدمون النشطون",
+        "activeBorrows": "الاستعارات النشطة",
+        "overdue": "متأخر"
+      },
+      "categoryDist": "توزيع الفئات",
+      "recentBorrows": "الاستعارات الأخيرة",
+      "noRecords": "لا توجد سجلات استعارة بعد"
+    },
+    "books": {
+      "title": "الكتب",
+      "subtitle": "{{count}} كتاب في المكتبة",
+      "addBook": "إضافة كتاب",
+      "search": "ابحث في الكتب...",
+      "noBooks": "لم يتم العثور على كتب",
+      "editBook": "تعديل الكتاب",
+      "columns": {
+        "book": "الكتاب",
+        "isbn": "الرقم الدولي",
+        "category": "الفئة",
+        "status": "الحالة",
+        "available": "المتاح"
+      },
+      "form": {
+        "title": "العنوان",
+        "author": "المؤلف",
+        "isbn": "الرقم الدولي",
+        "category": "الفئة",
+        "selectCategory": "اختر الفئة",
+        "publisher": "الناشر",
+        "publishedDate": "تاريخ النشر",
+        "selectDate": "اختر التاريخ",
+        "copies": "النسخ",
+        "location": "الموقع",
+        "branch": "الفرع",
+        "selectBranch": "اختر الفرع",
+        "description": "الوصف",
+        "pages": "الصفحات",
+        "language": "اللغة",
+        "format": "الصيغة",
+        "selectFormat": "اختر الصيغة",
+        "cancel": "إلغاء",
+        "add": "إضافة كتاب",
+        "update": "تحديث الكتاب"
+      }
+    },
+    "users": {
+      "title": "المستخدمون",
+      "subtitle": "{{count}} مستخدم مسجل",
+      "search": "البحث عن المستخدمين...",
+      "noUsers": "لم يتم العثور على مستخدمين",
+      "columns": {
+        "user": "المستخدم",
+        "role": "الدور",
+        "membership": "العضوية",
+        "limit": "الحد",
+        "status": "الحالة"
+      },
+      "actions": {
+        "suspend": "إيقاف",
+        "activate": "تفعيل"
+      }
+    },
+    "branches": {
+      "title": "الفروع",
+      "subtitle": "{{count}} فروع للمكتبة",
+      "addBranch": "إضافة فرع",
+      "details": {
+        "books": "الكتب",
+        "members": "الأعضاء",
+        "manager": "المدير"
+      },
+      "form": {
+        "name": "الاسم",
+        "address": "العنوان",
+        "city": "المدينة",
+        "phone": "الهاتف",
+        "email": "البريد الإلكتروني",
+        "manager": "المدير",
+        "openHours": "ساعات العمل",
+        "cancel": "إلغاء",
+        "add": "إضافة فرع"
+      }
+    },
+    "catalog": {
+      "title": "الفهرس",
+      "subtitle": "سجلات الاستعارة",
+      "stats": {
+        "active": "نشط",
+        "returned": "مُعاد",
+        "overdue": "متأخر",
+        "total": "الإجمالي"
+      },
+      "search": "البحث في السجلات...",
+      "noRecords": "لا توجد سجلات",
+      "columns": {
+        "book": "الكتاب",
+        "user": "المستخدم",
+        "borrowDate": "تاريخ الاستعارة",
+        "dueDate": "تاريخ الاستحقاق",
+        "status": "الحالة"
+      },
+      "actions": {
+        "checkIn": "إرجاع"
+      },
+      "modal": {
+        "title": "إرجاع كتاب",
+        "confirm": "هل تؤكد إرجاع هذا الكتاب؟",
+        "cancel": "إلغاء",
+        "submit": "تأكيد الإرجاع"
+      }
+    },
+    "aiGenerate": {
+      "title": "توليد بالذكاء الاصطناعي",
+      "subtitle": "أنشئ كتبًا بالذكاء الاصطناعي أو أضفها يدويًا",
+      "tabs": {
+        "ai": "توليد بالذكاء الاصطناعي",
+        "manual": "رفع يدوي"
+      },
+      "ai": {
+        "promptTitle": "صف كتابك",
+        "placeholder": "لغز مثير تدور أحداثه في لندن الفيكتورية حيث يجب على المحقق حل سلسلة من الجرائم المستحيلة...",
+        "generate": "توليد",
+        "by": "بواسطة {{author}}",
+        "synopsis": "الملخص",
+        "chapters": "الفصول"
+      },
+      "manual": {
+        "select": "اختر",
+        "add": "إضافة كتاب"
+      }
+    }
+  },
+  "user": {
+    "layout": {
+      "menu": {
+        "home": "الرئيسية",
+        "search": "البحث",
+        "shelf": "الرف",
+        "aiSearch": "البحث بالذكاء الاصطناعي",
+        "contribute": "المساهمة",
+        "profile": "الملف الشخصي"
+      },
+      "brandPrefix": "مكتبتي ",
+      "brandHighlight": "الذكية",
+      "brandSub": "S h e l f",
+      "searchPlaceholder": "البحث في الكتب...",
+      "footer": {
+        "about": "حول",
+        "support": "الدعم",
+        "terms": "الشروط والأحكام"
+      }
+    },
+    "auth": {
+      "signIn": {
+        "title": "Shelf AI",
+        "subtitle": "مكتبتك المدعومة بالذكاء الاصطناعي"
+      },
+      "signUp": {
+        "title": "انضم إلى Shelf AI",
+        "subtitle": "أنشئ ملف مكتبتك"
+      }
+    },
+    "home": {
+      "greeting": {
+        "morning": "صباح الخير",
+        "afternoon": "طاب مساؤك",
+        "evening": "مساء الخير",
+        "welcome": "{{greeting}}، {{name}}!",
+        "borrowsStatus": "لديك {{active}} استعارة نشطة{{overdueText}}.",
+        "andOverdue": " و {{overdue}} متأخرة"
+      },
+      "quote": "يوجد كنز في الكتب أكثر من كل غنائم القراصنة في جزيرة الكنز.",
+      "quoteAuthor": "والت ديزني",
+      "stats": {
+        "totalBooks": "إجمالي الكتب",
+        "inLibrary": "{{count}} في المكتبة",
+        "activeBorrows": "الاستعارات النشطة",
+        "dueThisWeek": "مستحقة هذا الأسبوع",
+        "returned": "المرتجعة",
+        "allOnTime": "الكل في الوقت المحدد",
+        "overdue": "المتأخرة",
+        "borrowed": "المستعارة",
+        "returnImmediately": "قم بإرجاعها على الفور",
+        "none": "لا يوجد",
+        "borrowActivity": "نشاط الاستعارة",
+        "borrowActivitySub": "اتجاه الاستعارة والإرجاع والتأخير الشهري",
+        "byCategory": "حسب الفئة",
+        "categorySub": "توزيع الكتب في المكتبة",
+        "monthlyOverview": "نظرة عامة شهرية",
+        "monthlyOverviewSub": "الكتب المستعارة مقابل المرتجعة شهريًا"
+      },
+      "sections": {
+        "currentlyBorrowed": "المستعارة حاليًا",
+        "showAll": "عرض الكل",
+        "noActiveBorrows": "لا توجد استعارات نشطة.",
+        "overdue": "متأخرة",
+        "due": "مستحقة: {{date}}",
+        "notifications": "الإشعارات",
+        "markAllRead": "تحديد الكل كمقروء",
+        "noNotifications": "لا توجد إشعارات.",
+        "recommended": "موصى به لك"
+      }
+    },
+    "search": {
+      "title": "فهرس المكتبة",
+      "subtitle": "{{count}} كتابًا في المجموعة",
+      "searchPlaceholder": "البحث بالعنوان أو المؤلف أو رقم ISBN...",
+      "filters": {
+        "title": "التصفيات",
+        "category": "الفئة",
+        "format": "التنسيق",
+        "status": "الحالة",
+        "all": "الكل",
+        "hardcopy": "نسخة ورقية",
+        "ebook": "كتاب إلكتروني",
+        "audiobook": "كتاب صوتي",
+        "available": "متاح",
+        "borrowed": "مستعار"
+      },
+      "results": {
+        "count_zero": "لا توجد نتائج",
+        "count_one": "نتيجة واحدة",
+        "count_two": "نتيجتان",
+        "count_few": "{{count}} نتائج",
+        "count_many": "{{count}} نتيجة",
+        "count_other": "{{count}} نتيجة",
+        "emptyTitle": "لم يتم العثور على كتب",
+        "emptySubtitle": "حاول ضبط البحث أو التصفيات",
+        "copiesAvailable": "{{count}} متاح",
+        "unavailable": "غير متاح",
+        "out": "بالخارج"
+      }
+    },
+    "aiSearch": {
+      "title": "بحث الذكاء الاصطناعي",
+      "subtitle": "ابحث عن الكتب باستخدام اللغة الطبيعية",
+      "searchPlaceholder": "اسأل أي شيء عن الكتب...",
+      "searchButton": "بحث",
+      "randomDiscovery": "اكتشاف عشوائي",
+      "suggestions": [
+        "كتب عن استكشاف الفضاء",
+        "روايات كلاسيكية للمبتدئين",
+        "أفضل روايات الغموض والإثارة على الإطلاق",
+        "تحسين الذات والإنتاجية",
+        "كتب الفلسفة للحياة اليومية",
+        "عوالم خيالية بقواعد سحرية"
+      ],
+      "emptyTitle": "ابدأ بحثك المدعوم بالذكاء الاصطناعي",
+      "emptySubtitle": "اكتب استفسارك أو انقر على أحد الاقتراحات أعلاه"
+    },
+    "shelf": {
+      "title": "رف كتبي",
+      "stats": "{{active}} نشطة · {{overdue}} متأخرة",
+      "view": {
+        "shelf": "عرض الرف",
+        "list": "عرض القائمة"
+      },
+      "filters": {
+        "all": "الكل",
+        "active": "نشطة",
+        "overdue": "متأخرة",
+        "returned": "مرتجعة"
+      },
+      "alerts": {
+        "overdueTitle": "{{count}} كتب متأخرة",
+        "overdueDesc": "قم بإرجاع الكتب المتأخرة لتجنب الغرامات الإضافية"
+      },
+      "emptyState": "لم يتم العثور على سجلات لهذه التصفية.",
+      "record": {
+        "overdueDays": "متأخر {{days}} أيام",
+        "daysLeft": "متبقي {{days}} أيام",
+        "returnedOn": "أعيدت في: {{date}}",
+        "renew": "تجديد",
+        "return": "إرجاع",
+        "unknownBook": "كتاب غير معروف"
+      }
+    },
+    "bookDetails": {
+      "notFound": "الكتاب غير موجود",
+      "browseLibrary": "تصفح المكتبة",
+      "issuedMsg": "تم إصدار {{title}} لك.",
+      "formats": {
+        "ebook": "كتاب إلكتروني",
+        "audiobook": "كتاب صوتي",
+        "hardcopy": "نسخة ورقية"
+      },
+      "back": "رجوع",
+      "by": "بواسطة",
+      "pages": "{{count}} صفحات",
+      "na": "غير متوفر",
+      "availability": "{{available}}/{{total}} متاح",
+      "actions": {
+        "borrow": "استعارة كتاب",
+        "alreadyBorrowed": "مستعار بالفعل",
+        "unavailable": "غير متاح",
+        "readEbook": "قراءة الكتاب الإلكتروني",
+        "audiobook": "كتاب صوتي"
+      },
+      "tabs": {
+        "overview": "نظرة عامة",
+        "details": "التفاصيل"
+      },
+      "overview": {
+        "isbn": "رقم ISBN",
+        "publisher": "الناشر",
+        "published": "نُشر في",
+        "language": "اللغة",
+        "english": "الإنجليزية",
+        "edition": "الطبعة",
+        "firstEdition": "الطبعة الأولى",
+        "shelfLocation": "موقع الرف",
+        "branch": "الفرع",
+        "formats": "التنسيقات"
+      },
+      "details": {
+        "title": "التوافر والنسخ",
+        "total": "الإجمالي",
+        "available": "متاح",
+        "checkedOut": "مستعار"
+      }
+    },
+    "contribute": {
+      "title": "المساهمة",
+      "subtitle": "تبرع أو أرسل كتباً إلى المكتبة",
+      "modes": {
+        "upload": "رفع ملف",
+        "manual": "إدخال يدوي"
+      },
+      "upload": {
+        "dragDrop": "اسحب وأفلت الملف هنا",
+        "supports": "يدعم ملفات PDF و EPUB حتى 50 ميجابايت",
+        "browseFiles": "تصفح الملفات",
+        "remove": "إزالة"
+      },
+      "form": {
+        "title": "العنوان",
+        "author": "المؤلف",
+        "isbn": "رقم ISBN",
+        "category": "الفئة",
+        "selectCategory": "اختر الفئة",
+        "publisher": "الناشر",
+        "publishedDate": "تاريخ النشر",
+        "selectDate": "اختر التاريخ",
+        "copies": "النسخ",
+        "location": "الموقع",
+        "branch": "الفرع",
+        "selectBranch": "اختر الفرع",
+        "description": "الوصف",
+        "submit": "إرسال الكتاب"
+      }
+    },
+    "profile": {
+      "title": "الملف الشخصي",
+      "subtitle": "إدارة حساب المكتبة والإعدادات",
+      "tabs": {
+        "account": "إعدادات الحساب",
+        "security": "تسجيل الدخول والأمان",
+        "notifications": "الإشعارات",
+        "interface": "الواجهة"
+      },
+      "account": {
+        "avatarTitle": "صورة ملفك الشخصي",
+        "uploadPhoto": "تحميل صورة جديدة",
+        "fullName": "الاسم الكامل",
+        "email": "البريد الإلكتروني للكلية",
+        "registerNum": "رقم التسجيل",
+        "phone": "رقم الهاتف",
+        "department": "القسم",
+        "bio": "نبذة",
+        "bioPlaceholder": "أخبرنا عن نفسك...",
+        "update": "تحديث الملف الشخصي",
+        "reset": "إعادة تعيين"
+      },
+      "security": {
+        "passwordTitle": "إدارة كلمة المرور",
+        "passwordDesc": "تتم إدارة المصادقة وأمان كلمة المرور الخاصة بك بأمان من خلال Clerk. انقر فوق الزر أدناه لفتح بوابة حسابك.",
+        "managePassword": "إدارة كلمة المرور في Clerk",
+        "tfaTitle": "المصادقة الثنائية",
+        "tfaDesc": "أضف طبقة أمان إضافية إلى حسابك عن طريق تمكين المصادقة الثنائية.",
+        "enableTfa": "تمكين المصادقة الثنائية"
+      },
+      "notifications": {
+        "emailLabel": "إشعارات البريد الإلكتروني",
+        "emailDesc": "تلقي التحديثات والإيصالات الهامة عبر البريد الإلكتروني",
+        "pushLabel": "إشعارات الدفع",
+        "pushDesc": "احصل على إشعارات الدفع في المتصفح في الوقت الفعلي",
+        "overdueLabel": "تنبيهات التأخير",
+        "overdueDesc": "أعلمني فورًا عندما تتأخر الكتب",
+        "availableLabel": "تنبيهات التوافر",
+        "availableDesc": "أعلمني عند توفر الكتب المحجوزة أو المطلوبة",
+        "newsletterLabel": "رسالة إخبارية",
+        "newsletterDesc": "اشترك في النشرة الإخبارية الأسبوعية لفهرس المكتبة"
+      },
+      "interface": {
+        "themeTitle": "سمة التطبيق",
+        "themes": {
+          "dark": "داكن",
+          "light": "فاتح",
+          "system": "النظام"
+        },
+        "langTitle": "تفضيلات اللغة",
+        "languages": {
+          "en": "الإنجليزية",
+          "ar": "العربية"
+        }
+      }
+    },
+    "read": {
+      "notices": {
+        "pushedNext": "تم التقدم إلى الفصل التالي",
+        "pushedPrev": "تمت العودة إلى الفصل السابق"
+      },
+      "loading": "جاري تحميل القارئ...",
+      "readerAria": "قارئ الكتب الإلكترونية بدون تشتيت",
+      "closeAria": "إغلاق القارئ والعودة إلى المكتبة",
+      "close": "إغلاق",
+      "bookmarkAria": "إضافة إشارة مرجعية",
+      "settingsAria": "إعدادات القارئ",
+      "fullscreenAria": "تبديل ملء الشاشة",
+      "prevChapter": "الفصل السابق",
+      "nextChapter": "الفصل التالي",
+      "progressAria": "متتبع تقدم القراءة",
+      "timeLeft": "حوالي 45 دقيقة متبقية في الفصل"
+    }
+  }
+}
