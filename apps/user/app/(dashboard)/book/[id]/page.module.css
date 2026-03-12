@@ -1,0 +1,338 @@
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  gap: 16px;
+}
+
+.notFoundIcon {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.notFoundTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 40px;
+}
+
+.liveMessage {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.bookContent {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.coverContainer {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg, 16px);
+  padding: 24px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  max-width: 220px;
+}
+
+.detailsContainer {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.bookTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+
+.bookAuthor {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.metaInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #f59e0b;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.availabilityAvailable {
+  color: var(--stat-green);
+}
+
+.availabilityUnavailable {
+  color: var(--stat-red);
+}
+
+.description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.actionIcon {
+  margin-right: 6px;
+}
+
+.tabsList {
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+}
+
+.tabBtn {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: capitalize;
+}
+
+.tabBtnActive {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+.tabBtnInactive {
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+}
+
+.tabPanel {
+  animation: fadeIn 0.3s ease;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 14px;
+}
+
+.overviewItem {
+  background: var(--bg-surface);
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iconWrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(249, 115, 22, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.itemLabel {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.itemValue {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.detailsPanel {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg, 16px);
+  padding: 20px;
+  border: 1px solid var(--border);
+}
+
+.detailsTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.copiesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.copyBox {
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+
+.copyBoxTotal {
+  background: var(--bg-body);
+}
+
+.copyBoxAvailable {
+  background: rgba(16, 185, 129, 0.06);
+}
+
+.copyBoxCheckedOut {
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.copyValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.copyValueTotal {
+  color: var(--text-primary);
+}
+
+.copyValueAvailable {
+  color: var(--stat-green);
+}
+
+.copyValueCheckedOut {
+  color: var(--stat-blue);
+}
+
+.copyLabel {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progressBarAvailable {
+  background: var(--stat-green);
+}
+
+.progressBarUnavailable {
+  background: var(--stat-red);
+}
+
+@media (max-width: 768px) {
+  .coverContainer {
+    max-width: 100%;
+    width: 100%;
+  }
+  .bookContent {
+    flex-direction: column;
+    align-items: center;
+  }
+  .detailsContainer {
+    width: 100%;
+    text-align: center;
+  }
+  .metaInfo {
+    justify-content: center;
+  }
+  .badges {
+    justify-content: center;
+  }
+  .actions {
+    justify-content: center;
+  }
+  .copiesGrid {
+    grid-template-columns: 1fr;
+  }
+  .bookTitle {
+    font-size: 1.25rem;
+  }
+}
