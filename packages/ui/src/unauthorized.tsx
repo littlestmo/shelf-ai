@@ -6,11 +6,13 @@ import { useClerk } from "@clerk/nextjs";
 interface UnauthorizedProps {
   title?: string;
   message?: string;
+  signOutLabel?: string;
 }
 
-export function Unauthorized({ 
-  title = "Access Denied", 
-  message = "You do not have permission to view this page." 
+export function Unauthorized({
+  title = "Access Denied",
+  message = "You do not have permission to view this page.",
+  signOutLabel = "Sign Out",
 }: UnauthorizedProps) {
   const { signOut } = useClerk();
 
@@ -32,7 +34,7 @@ export function Unauthorized({
         {message}
       </p>
       <Button onClick={() => signOut()} variant="primary">
-        Sign Out
+        {signOutLabel}
       </Button>
     </div>
   );

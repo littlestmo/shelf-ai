@@ -195,6 +195,9 @@
     },
     "languageToggle": {
       "ariaLabel": "Toggle language"
+    },
+    "unauthorized": {
+      "signOut": "Sign Out"
     }
   },
   "admin": {
@@ -217,6 +220,10 @@
       "signUp": {
         "title": "System Access",
         "subtitle": "Register Admin Privileges"
+      },
+      "unauthorized": {
+        "title": "Admin Access Required",
+        "message": "Your account does not have administrator privileges. Please sign in with an admin account or return to the main library dashboard."
       }
     },
     "dashboard": {
@@ -391,6 +398,10 @@
       "signUp": {
         "title": "Join Shelf AI",
         "subtitle": "Create your library profile"
+      },
+      "unauthorized": {
+        "title": "Administrative Account",
+        "message": "You are signed in as an administrator. This dashboard is intended for library members only. Please use the Admin panel."
       }
     },
     "home": {

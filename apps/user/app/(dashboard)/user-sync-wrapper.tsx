@@ -5,10 +5,12 @@ import { useUser } from "@clerk/nextjs";
 import { useEnsureUser } from "@shelf-ai/shared/hooks";
 import { Unauthorized } from "@shelf-ai/ui/unauthorized";
 import { Loader2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function UserSyncWrapper({ children }: { children: React.ReactNode }) {
   const { user, isLoaded } = useUser();
   const dbUser = useEnsureUser(user);
+  const { t } = useTranslation();
 
   if (!isLoaded) {
     return (
@@ -18,15 +20,14 @@ export function UserSyncWrapper({ children }: { children: React.ReactNode }) {
     );
   }
 
-  // Let Clerk handle normal unauthenticated cases
   if (!user) return <>{children}</>;
 
-  // Block Admins and Librarians from the User dashboard
   if (dbUser && (dbUser.role.tag === "Admin" || dbUser.role.tag === "Librarian")) {
     return (
-      <Unauthorized 
-        title="Administrative Account" 
-        message="You are signed in as an administrator. This dashboard is intended for library members only. Please use the Admin panel." 
+      <Unauthorized
+        title={t("user.auth.unauthorized.title")}
+        message={t("user.auth.unauthorized.message")}
+        signOutLabel={t("ui.unauthorized.signOut")}
       />
     );
   }
