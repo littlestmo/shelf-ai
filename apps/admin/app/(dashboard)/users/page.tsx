@@ -63,7 +63,7 @@ export default function UsersPage() {
       result = result.filter((u) => u.role.tag === roleFilter);
     }
     return result;
-  }, [users, search, roleFilter]);
+  }, [uniqueUsers, search, roleFilter]);
 
   const setSearch = (q: string) => {
     const params = new URLSearchParams(searchParams.toString());
