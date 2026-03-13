@@ -18,7 +18,7 @@ import {
   useCheckinBook,
   useRenewBook,
   useAddRating,
-  useUsers,
+  useEnsureUser,
 } from "@shelf-ai/shared/hooks";
 import { BookCover } from "@shelf-ai/ui/book-cover";
 import { Badge } from "@shelf-ai/ui/badge";
@@ -49,11 +49,7 @@ export default function ShelfPage() {
   const addRating = useAddRating();
   const router = useRouter();
   const { user } = useUser();
-  const users = useUsers();
-  const dbUser = React.useMemo(() => {
-    if (!user || !users) return null;
-    return users.find((u) => u.clerkId === user.id);
-  }, [user, users]);
+  const dbUser = useEnsureUser(user);
 
   const [viewMode, setViewMode] = useState<ViewMode>("list");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
