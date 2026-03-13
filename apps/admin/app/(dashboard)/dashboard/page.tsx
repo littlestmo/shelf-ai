@@ -92,12 +92,20 @@ export default function DashboardPage() {
   const totalCopies = books.reduce((sum, b) => sum + b.totalCopies, 0);
   const availableCopies = books.reduce((sum, b) => sum + b.availableCopies, 0);
 
+  const parseBorrowDate = (dateStr: string) => {
+    if (/^\d+$/.test(dateStr)) {
+      const days = parseInt(dateStr, 10);
+      return new Date(days * 86400 * 1000);
+    }
+    return new Date(dateStr);
+  };
+
   const monthlyData = useMemo(() => {
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const currentYear = new Date().getFullYear();
     return months.map((month, i) => {
       const monthRecords = records.filter((r) => {
-        const d = new Date(r.borrowDate);
+        const d = parseBorrowDate(r.borrowDate);
         return d.getFullYear() === currentYear && d.getMonth() === i;
       });
       return {
