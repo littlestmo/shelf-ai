@@ -263,6 +263,14 @@ export default function HomePage() {
       .slice(0, 6);
   }, [books]);
 
+  const parseBorrowDate = (dateStr: string) => {
+    if (/^\d+$/.test(dateStr)) {
+      const days = parseInt(dateStr, 10);
+      return new Date(days * 86400 * 1000);
+    }
+    return new Date(dateStr);
+  };
+
   const chartData = useMemo(() => {
     const months = [
       "Jan",
@@ -280,13 +288,13 @@ export default function HomePage() {
     ];
     const currentYear = new Date().getFullYear();
     const thisYearRecords = records.filter((r) => {
-      const d = new Date(r.borrowDate);
+      const d = parseBorrowDate(r.borrowDate);
       return d.getFullYear() === currentYear;
     });
 
     return months.map((month, i) => {
       const monthRecords = thisYearRecords.filter((r) => {
-        const d = new Date(r.borrowDate);
+        const d = parseBorrowDate(r.borrowDate);
         return d.getMonth() === i;
       });
       return {
@@ -378,8 +386,8 @@ export default function HomePage() {
               overdueText:
                 overdueBooks > 0
                   ? t("user.home.greeting.andOverdue", {
-                      overdue: overdueBooks,
-                    })
+                    overdue: overdueBooks,
+                  })
                   : "",
             })}
           </p>
