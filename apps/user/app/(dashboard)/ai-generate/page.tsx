@@ -1,18 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { Wand2, BookOpen } from "lucide-react";
-import { useForm, Controller } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Wand2 } from "lucide-react";
 import { PageHeader } from "@shelf-ai/ui/page-header";
 import { Button } from "@shelf-ai/ui/button";
-import { Select } from "@shelf-ai/ui/select";
-import { DatePicker } from "@shelf-ai/ui/date-picker";
 import { format } from "date-fns";
-import { FormField, inputClass, textareaClass } from "@shelf-ai/ui/form-field";
+import { textareaClass } from "@shelf-ai/ui/form-field";
 import { useAddBook, useBranches } from "@shelf-ai/shared/hooks";
-import { addBookSchema, type AddBookInput } from "@shelf-ai/shared/schemas";
-import { BOOK_CATEGORIES } from "@shelf-ai/shared/constants";
+import { useTranslation } from "react-i18next";
 import { useTranslation } from "react-i18next";
 import styles from "./page.module.css";
 
@@ -38,17 +33,6 @@ export default function AiGeneratePage() {
   const [result, setResult] = useState<AiBookResult | null>(null);
   const [error, setError] = useState("");
   const [saved, setSaved] = useState(false);
-  const [mode, setMode] = useState<"ai" | "manual">("ai");
-
-  const {
-    register,
-    control,
-    handleSubmit,
-    formState: { errors },
-    reset: resetForm,
-  } = useForm<AddBookInput>({
-    resolver: zodResolver(addBookSchema),
-  });
 
   const handleGenerate = async () => {
     if (prompt.trim().length < 10) {
@@ -102,25 +86,7 @@ export default function AiGeneratePage() {
     setSaved(true);
   };
 
-  const handleManualSubmit = (data: AddBookInput) => {
-    addBook({
-      title: data.title,
-      author: data.author,
-      isbn: data.isbn,
-      category: data.category,
-      publishedDate: data.publishedDate,
-      publisher: data.publisher,
-      totalCopies: data.totalCopies,
-      description: data.description,
-      location: data.location,
-      branchId: data.branchId,
-      format: data.format ? [data.format] : ["Hardcopy"],
-      pages: data.pages,
-      language: data.language,
-      edition: data.edition,
-    });
-    resetForm();
-  };
+
 
   return (
     <main className={styles.container} role="main" aria-label="AI Book Generator">
