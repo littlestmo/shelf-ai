@@ -6,7 +6,8 @@ import { DashboardShell, type MenuItem } from "@shelf-ai/ui/dashboard-shell";
 import { ThemeToggle } from "@shelf-ai/ui/theme-toggle";
 import { LanguageToggle } from "@shelf-ai/ui/language-toggle";
 import { UserSyncWrapper } from "@shelf-ai/ui/user-sync-wrapper";
-import { Sparkles, Upload, User, Home, Search, BookMarked } from "lucide-react";
+import { NotificationBellWrapper } from "@shelf-ai/ui/notification-bell-wrapper";
+import { Sparkles, Upload, User, Home, Search, BookMarked, Wand2 } from "lucide-react";
 import { SpacetimeDBProvider } from "@shelf-ai/shared/spacetimedb";
 import { useTranslation } from "react-i18next";
 import styles from "./layout.module.css";
@@ -50,6 +51,12 @@ export default function DashboardLayout({
         path: "/ai-search",
       },
       {
+        id: "ai-generate",
+        label: t("user.layout.menu.aiGenerate") || "AI Generate",
+        icon: Wand2,
+        path: "/ai-generate",
+      },
+      {
         id: "contribute",
         label: t("user.layout.menu.contribute"),
         icon: Upload,
@@ -80,6 +87,7 @@ export default function DashboardLayout({
             <>
               <ThemeToggle />
               <LanguageToggle />
+              <NotificationBellWrapper />
               <UserButton
                 appearance={{
                   elements: { avatarBox: { width: 34, height: 34 } },
@@ -107,4 +115,3 @@ export default function DashboardLayout({
     </SpacetimeDBProvider>
   );
 }
-
