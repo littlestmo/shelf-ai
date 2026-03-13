@@ -20,7 +20,7 @@ import styles from "./page.module.css";
 
 type UserRow = ReturnType<typeof useUsers>[number];
 
-const ROLES = ["Admin", "Librarian", "Member"];
+const ROLES = ["Librarian", "Member"];
 const ROLE_COLORS: Record<string, string> = {
   Admin: "#f97316",
   Librarian: "#8b5cf6",
@@ -51,7 +51,7 @@ export default function UsersPage() {
   }, [users]);
 
   const filtered = useMemo(() => {
-    let result = uniqueUsers;
+    let result = uniqueUsers.filter((u) => u.role.tag !== "Admin");
     if (search) {
       const q = search.toLowerCase();
       result = result.filter(

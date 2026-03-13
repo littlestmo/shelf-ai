@@ -9,12 +9,19 @@ import { useTranslation } from "react-i18next";
 
 export function UserSyncWrapper({ children }: { children: React.ReactNode }) {
   const { user, isLoaded } = useUser();
-  const dbUser = useEnsureUser(user);
+  const dbUser = useEnsureUser(user, "Admin");
   const { t } = useTranslation();
 
   if (!isLoaded) {
     return (
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+        }}
+      >
         <Loader2 className="animate-spin" size={32} />
       </div>
     );

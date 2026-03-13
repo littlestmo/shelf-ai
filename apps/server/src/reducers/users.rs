@@ -13,9 +13,11 @@ pub fn add_user(
 ) {
     let now = ctx.timestamp;
 
-    // Prevent duplicate inserts for the same Clerk user
     if ctx.db.library_user().iter().any(|u| u.clerk_id == clerk_id) {
-        log::info!("User with clerk_id {} already exists. Skipping insert.", clerk_id);
+        log::info!(
+            "User with clerk_id {} already exists. Skipping insert.",
+            clerk_id
+        );
         return;
     }
 

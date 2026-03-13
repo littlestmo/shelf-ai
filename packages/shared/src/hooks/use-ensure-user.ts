@@ -12,7 +12,10 @@ interface ClerkUserInfo {
   imageUrl?: string;
 }
 
-export function useEnsureUser(clerkUser: ClerkUserInfo | null | undefined) {
+export function useEnsureUser(
+  clerkUser: ClerkUserInfo | null | undefined,
+  defaultRole: "Admin" | "Member" | "Librarian" = "Member",
+) {
   const { connection, connected } = useSpacetimeDB();
   const syncedRef = useRef<string | null>(null);
 
@@ -34,13 +37,13 @@ export function useEnsureUser(clerkUser: ClerkUserInfo | null | undefined) {
       clerkId: clerkUser.id,
       name,
       email,
-      role: { tag: "Member" } as never,
+      role: { tag: defaultRole } as never,
       phone,
       membershipType: { tag: "Basic" } as never,
     });
 
     syncedRef.current = clerkUser.id;
-  }, [clerkUser, connection, connected]);
+  }, [clerkUser, connection, connected, defaultRole]);
 
   return useMemo(() => {
     if (!clerkUser || !connection || !connected) return null;

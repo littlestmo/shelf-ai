@@ -402,6 +402,10 @@
       "unauthorized": {
         "title": "Administrative Account",
         "message": "You are signed in as an administrator. This dashboard is intended for library members only. Please use the Admin panel."
+      },
+      "suspended": {
+        "title": "Account Suspended",
+        "message": "Your account has been suspended. Please contact the administrator to restore access."
       }
     },
     "home": {
