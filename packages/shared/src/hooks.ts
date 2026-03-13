@@ -399,3 +399,4 @@ export function useMarkNotificationRead() {
 }
 
 export * from "./hooks/use-debounce";
+export * from "./hooks/use-ensure-user";
