@@ -88,8 +88,22 @@ export default function DashboardPage() {
   const branches = useBranches();
   const records = useBorrowRecords();
 
+  const uniqueUsers = useMemo(() => {
+    const seen = new Set<string>();
+    const unique: typeof users = [];
+    for (const u of users) {
+      if (!seen.has(u.clerkId)) {
+        seen.add(u.clerkId);
+        unique.push(u);
+      }
+    }
+    return unique;
+  }, [users]);
+
   const totalBooks = books.length;
-  const activeUsers = users.filter((u) => u.status.tag === "Active").length;
+  const activeUsers = uniqueUsers.filter(
+    (u) => u.status.tag === "Active",
+  ).length;
   const activeBorrows = records.filter((r) => r.status.tag === "Active").length;
   const overdueCount = records.filter((r) => r.status.tag === "Overdue").length;
   const returnedCount = records.filter(
@@ -217,7 +231,7 @@ export default function DashboardPage() {
           value={activeUsers}
           icon={<Users size={18} color="#3b82f6" />}
           iconBg="rgba(59,130,246,0.15)"
-          trend={{ value: users.length, positive: true }}
+          trend={{ value: uniqueUsers.length, positive: true }}
         />
         <StatCard
           label={t("admin.dashboard.stats.activeBorrows")}
@@ -521,7 +535,7 @@ export default function DashboardPage() {
             )}
             {recentRecords.map((r) => {
               const book = books.find((b) => b.id === r.bookId);
-              const usr = users.find((u) => u.id === r.userId);
+              const usr = uniqueUsers.find((u) => u.id === r.userId);
               return (
                 <div key={r.id} className={styles.timelineItem}>
                   <div
