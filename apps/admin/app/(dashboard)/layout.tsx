@@ -5,7 +5,7 @@ import { UserButton } from "@clerk/nextjs";
 import { DashboardShell } from "@shelf-ai/ui/dashboard-shell";
 import { ThemeToggle } from "@shelf-ai/ui/theme-toggle";
 import { LanguageToggle } from "@shelf-ai/ui/language-toggle";
-import { UserSyncWrapper } from "@shelf-ai/ui/user-sync-wrapper";
+import { UserSyncWrapper } from "./user-sync-wrapper";
 import {
   LayoutDashboard,
   BookOpen,

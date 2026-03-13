@@ -5,7 +5,7 @@ import { UserButton } from "@clerk/nextjs";
 import { DashboardShell, type MenuItem } from "@shelf-ai/ui/dashboard-shell";
 import { ThemeToggle } from "@shelf-ai/ui/theme-toggle";
 import { LanguageToggle } from "@shelf-ai/ui/language-toggle";
-import { UserSyncWrapper } from "@shelf-ai/ui/user-sync-wrapper";
+import { UserSyncWrapper } from "./user-sync-wrapper";
 import { NotificationBellConnected } from "./notification-bell-connected";
 import { Sparkles, Upload, User, Home, Search, BookMarked, Wand2 } from "lucide-react";
 import { SpacetimeDBProvider } from "@shelf-ai/shared/spacetimedb";
