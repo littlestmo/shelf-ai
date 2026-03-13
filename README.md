@@ -43,6 +43,22 @@
 
 Shelf AI is an AI-powered library management system built as a Turborepo monorepo. It features two Next.js 16 dashboards (admin and user), a Rust-based SpacetimeDB server module, and shared UI/logic packages. AI capabilities, semantic search, book generation, and magic shuffle, are powered by Google Gemini via the Vercel AI SDK.
 
+## Preview
+
+| User Dashboard                                             | Admin Dashboard                                                     |
+| :--------------------------------------------------------- | :------------------------------------------------------------------ |
+| ![User Dashboard](./docs/assets/user-dashboard.png)        | ![Admin Dashboard](./docs/assets/admin-dashboard.png)               |
+| ![AI Book Generator](./docs/assets/user-ai-book-gen.png)   | ![Admin AI Book Gen](./docs/assets/admin-ai-book-gen.png)           |
+| ![Library Catalog](./docs/assets/user-library-catalog.png) | ![Admin Books Catalog](./docs/assets/admin-books-catalog.png)       |
+| ![Shelf View](./docs/assets/user-shelf-view.png)           | ![Admin Books View](./docs/assets/admin-books-view.png)             |
+| ![AI Search](./docs/assets/user-ai-search.png)             | ![Admin Users View](./docs/assets/admin-users-view.png)             |
+| ![Book Details](./docs/assets/user-book-details.png)       | ![Admin Library Branches](./docs/assets/admin-library-branches.png) |
+| ![Book Preview](./docs/assets/user-book-preview.png)       | ![Admin Suspend User](./docs/assets/admin-suspend-user.png)         |
+| ![i18n Support](./docs/assets/user-i18n-support.png)       |                                                                     |
+| ![Light Mode](./docs/assets/user-light-mode.png)           |                                                                     |
+| ![User Profile](./docs/assets/user-profile.png)            |                                                                     |
+| ![Upload Book](./docs/assets/user-upload-book-to-lib.png)  |                                                                     |
+
 ## Monorepo Structure
 
 ```
