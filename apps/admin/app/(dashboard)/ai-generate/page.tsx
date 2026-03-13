@@ -276,15 +276,15 @@ export default function AiGeneratePage() {
                       role="status"
                       style={{ color: "var(--stat-green)", fontWeight: 600 }}
                     >
-                      ✓ Book saved to library
+                      {t("admin.aiGenerate.ai.saved")}
                     </span>
                   ) : (
                     <Button
                       onClick={handleSaveAiBook}
                       disabled={branches.length === 0}
                     >
-                      <Sparkles size={14} className={styles.buttonIcon} /> Save
-                      to Library
+                      <Sparkles size={14} className={styles.buttonIcon} />{" "}
+                      {t("admin.aiGenerate.ai.save")}
                     </Button>
                   )}
                 </div>
@@ -310,9 +310,18 @@ export default function AiGeneratePage() {
               >
                 {pdfFile ? (
                   <>
-                    <FileText size={36} color="var(--accent)" aria-hidden="true" />
+                    <FileText
+                      size={36}
+                      color="var(--accent)"
+                      aria-hidden="true"
+                    />
                     <div className={styles.panelTitle}>{pdfFile.name}</div>
-                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>
+                    <div
+                      style={{
+                        fontSize: "0.78rem",
+                        color: "var(--text-muted)",
+                      }}
+                    >
                       {(pdfFile.size / 1024 / 1024).toFixed(2)} MB
                     </div>
                     <Button
@@ -320,22 +329,35 @@ export default function AiGeneratePage() {
                       size="sm"
                       onClick={() => setPdfFile(null)}
                     >
-                      Remove
+                      {t("admin.aiGenerate.manual.remove")}
                     </Button>
                   </>
                 ) : (
                   <>
-                    <Upload size={36} color="var(--text-muted)" aria-hidden="true" />
-                    <div className={styles.panelTitle}>Upload PDF (optional)</div>
-                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>
-                      Drag and drop or browse for a PDF file
+                    <Upload
+                      size={36}
+                      color="var(--text-muted)"
+                      aria-hidden="true"
+                    />
+                    <div className={styles.panelTitle}>
+                      {t("admin.aiGenerate.manual.uploadPdf")}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: "0.78rem",
+                        color: "var(--text-muted)",
+                      }}
+                    >
+                      {t("admin.aiGenerate.manual.dragDrop")}
                     </div>
                     <Button
                       variant="secondary"
                       size="sm"
-                      onClick={() => document.getElementById("admin-pdf-upload")?.click()}
+                      onClick={() =>
+                        document.getElementById("admin-pdf-upload")?.click()
+                      }
                     >
-                      Browse Files
+                      {t("admin.aiGenerate.manual.browseFiles")}
                     </Button>
                     <input
                       id="admin-pdf-upload"

@@ -2,20 +2,11 @@
 
 import React, { useMemo, useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
-import {
-  ArrowLeft,
-  Settings,
-  Maximize,
-  ChevronLeft,
-  ChevronRight,
-  Bookmark,
-} from "lucide-react";
+import { ArrowLeft, Settings, Maximize, Bookmark } from "lucide-react";
 import { useBooks } from "@shelf-ai/shared/hooks";
 import { Button } from "@shelf-ai/ui/button";
 import { useTranslation } from "react-i18next";
 import styles from "./page.module.css";
-
-
 
 export default function BookReaderPage() {
   const { t } = useTranslation();
@@ -135,9 +126,13 @@ export default function BookReaderPage() {
               className={styles.pdfObject}
             >
               <div className={styles.fallbackPdf}>
-                <p>It appears your browser doesn't support embedded PDFs.</p>
+                <p>
+                  {"It appears your browser doesn't support embedded PDFs."}
+                </p>
                 <a href={pdfUrl} download={`${book.title}.pdf`}>
-                  <Button variant="secondary">Download PDF</Button>
+                  <Button variant="secondary">
+                    {t("admin.aiGenerate.ai.save")}
+                  </Button>
                 </a>
               </div>
             </object>
@@ -145,14 +140,19 @@ export default function BookReaderPage() {
         ) : (
           <article
             className={styles.articleText}
-            style={{ fontSize, fontFamily, textAlign: "center", color: "var(--text-muted)", marginTop: "4rem" }}
+            style={{
+              fontSize,
+              fontFamily,
+              textAlign: "center",
+              color: "var(--text-muted)",
+              marginTop: "4rem",
+            }}
             aria-label="No PDF available message"
           >
             <p>No PDF available for this book.</p>
           </article>
         )}
       </main>
-
     </div>
   );
 }

@@ -232,4 +232,3 @@ export const UserStatus = __t.enum("UserStatus", {
   Suspended: __t.unit(),
 });
 export type UserStatus = __Infer<typeof UserStatus>;
-

@@ -99,17 +99,18 @@ export default function ContributePage() {
   };
 
   return (
-    <main className={styles.container} role="main" aria-label={t("user.contribute.title")}>
+    <main
+      className={styles.container}
+      role="main"
+      aria-label={t("user.contribute.title")}
+    >
       <PageHeader
         title={t("user.contribute.title")}
         subtitle={t("user.contribute.subtitle")}
         icon={<Upload size={22} aria-hidden="true" />}
       />
 
-      <section
-        className={styles.panel}
-        aria-label="Book upload and details"
-      >
+      <section className={styles.panel} aria-label="Book upload and details">
         <div
           onDragOver={(e) => {
             e.preventDefault();
@@ -153,7 +154,9 @@ export default function ContributePage() {
               <Button
                 variant="secondary"
                 size="sm"
-                onClick={() => document.getElementById("contribute-file-upload")?.click()}
+                onClick={() =>
+                  document.getElementById("contribute-file-upload")?.click()
+                }
               >
                 {t("user.contribute.upload.browseFiles")}
               </Button>

@@ -9,10 +9,7 @@ import {
   type AlgebraicTypeType as __AlgebraicTypeType,
   type Infer as __Infer,
 } from "spacetimedb";
-import {
-  BranchStatus,
-} from "./types";
-
+import { BranchStatus } from "./types";
 
 export default __t.row({
   id: __t.string().primaryKey(),

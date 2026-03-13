@@ -28,8 +28,7 @@ export function useEnsureUser(clerkUser: ClerkUserInfo | null | undefined) {
 
     const name = clerkUser.fullName || "User";
     const email = clerkUser.primaryEmailAddress?.emailAddress || "";
-    const phone =
-      clerkUser.phoneNumbers?.[0]?.phoneNumber || undefined;
+    const phone = clerkUser.phoneNumbers?.[0]?.phoneNumber || undefined;
 
     connection.reducers.addUser({
       clerkId: clerkUser.id,

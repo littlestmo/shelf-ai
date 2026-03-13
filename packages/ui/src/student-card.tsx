@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import QRCode from "qrcode";
+import html2canvas from "html2canvas";
 import styles from "./student-card.module.css";
 
 export interface StudentCardProps {
@@ -20,7 +22,6 @@ function useQrCodeUrl(value: string, size = 120): string | null {
     let cancelled = false;
     (async () => {
       try {
-        const QRCode = (await import("qrcode")).default;
         const dataUrl = await QRCode.toDataURL(value, {
           width: size,
           margin: 1,
@@ -59,7 +60,6 @@ export function StudentCard({
     }
     if (!cardRef.current) return;
     try {
-      const html2canvas = (await import("html2canvas")).default;
       const canvas = await html2canvas(cardRef.current, {
         backgroundColor: null,
         scale: 2,
@@ -115,7 +115,10 @@ export function StudentCard({
           </div>
 
           <div className={styles.details}>
-            <DetailRow label={t("ui.studentCard.studentId")} value={studentId} />
+            <DetailRow
+              label={t("ui.studentCard.studentId")}
+              value={studentId}
+            />
             <DetailRow label={t("ui.studentCard.fullName")} value={name} />
             <DetailRow
               label={t("ui.studentCard.department")}
@@ -166,7 +169,7 @@ export function StudentCard({
         onClick={handleExport}
         aria-label="Export student card as PNG"
       >
-        Export as PNG
+        {t("ui.studentCard.exportPng")}
       </button>
     </div>
   );

@@ -173,8 +173,6 @@ export default function ProfilePage() {
     setTheme(newTheme.toLowerCase());
   };
 
-
-
   const themeOptions = [
     { key: "dark", label: t("user.profile.interface.themes.dark") },
     { key: "light", label: t("user.profile.interface.themes.light") },
@@ -332,8 +330,6 @@ export default function ProfilePage() {
             </form>
           </div>
         )}
-
-
 
         {activeTab === "notifications" && (
           <div className={styles.notificationsContainer}>

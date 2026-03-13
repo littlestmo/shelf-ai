@@ -7,9 +7,8 @@ import { Button } from "@shelf-ai/ui/button";
 import { format } from "date-fns";
 import { textareaClass } from "@shelf-ai/ui/form-field";
 import { useAddBook, useBranches } from "@shelf-ai/shared/hooks";
-import { useTranslation } from "react-i18next";
-import { useTranslation } from "react-i18next";
 import styles from "./page.module.css";
+import { useTranslation } from "react-i18next";
 
 interface AiBookResult {
   title: string;
@@ -86,29 +85,44 @@ export default function AiGeneratePage() {
     setSaved(true);
   };
 
-
-
   return (
-    <main className={styles.container} role="main" aria-label="AI Book Generator">
+    <main
+      className={styles.container}
+      role="main"
+      aria-label="AI Book Generator"
+    >
       <PageHeader
         title={t("user.aiGenerate.title") || "AI Book Generator"}
-        subtitle={t("user.aiGenerate.subtitle") || "Generate or manually add books to the library"}
+        subtitle={
+          t("user.aiGenerate.subtitle") ||
+          "Generate or manually add books to the library"
+        }
         icon={<Wand2 size={22} aria-hidden="true" />}
       />
 
-      <section className={styles.panel} aria-label={t("user.aiGenerate.modes.ai")}>
-        <h2 className={styles.panelTitle}>{t("user.aiGenerate.ai.promptTitle")}</h2>
+      <section
+        className={styles.panel}
+        aria-label={t("user.aiGenerate.modes.ai")}
+      >
+        <h2 className={styles.panelTitle}>
+          {t("user.aiGenerate.ai.promptTitle")}
+        </h2>
         <textarea
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           rows={4}
           className={textareaClass}
-          placeholder={t("user.aiGenerate.ai.placeholder") || "e.g. A dystopian novel about a society where books are banned..."}
+          placeholder={
+            t("user.aiGenerate.ai.placeholder") ||
+            "e.g. A dystopian novel about a society where books are banned..."
+          }
           aria-label={t("user.aiGenerate.ai.promptTitle")}
         />
         <div className={styles.marginTop12}>
           <Button onClick={handleGenerate} disabled={loading} loading={loading}>
-            {loading ? t("user.aiGenerate.ai.generating") : t("user.aiGenerate.ai.generate")}
+            {loading
+              ? t("user.aiGenerate.ai.generating")
+              : t("user.aiGenerate.ai.generate")}
           </Button>
         </div>
         {error && (
@@ -119,14 +133,23 @@ export default function AiGeneratePage() {
       </section>
 
       {result && (
-        <section className={styles.resultPanel} aria-label="Generated book result">
+        <section
+          className={styles.resultPanel}
+          aria-label="Generated book result"
+        >
           <h2 className={styles.resultTitle}>{result.title}</h2>
-          <p className={styles.resultAuthor}>{t("user.bookDetails.by")} {result.author}</p>
+          <p className={styles.resultAuthor}>
+            {t("user.bookDetails.by")} {result.author}
+          </p>
 
-          <h3 className={styles.resultHeading}>{t("user.aiGenerate.ai.synopsis")}</h3>
+          <h3 className={styles.resultHeading}>
+            {t("user.aiGenerate.ai.synopsis")}
+          </h3>
           <p className={styles.resultText}>{result.synopsis}</p>
 
-          <h3 className={styles.resultHeading}>{t("user.aiGenerate.ai.chapters")}</h3>
+          <h3 className={styles.resultHeading}>
+            {t("user.aiGenerate.ai.chapters")}
+          </h3>
           <ol className={styles.chapterList}>
             {result.chapters.map((ch, i) => (
               <li key={i}>{ch}</li>

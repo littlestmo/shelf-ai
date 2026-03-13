@@ -9,12 +9,7 @@ import {
   type AlgebraicTypeType as __AlgebraicTypeType,
   type Infer as __Infer,
 } from "spacetimedb";
-import {
-  BookCategory,
-  BookFormat,
-  BookStatus,
-} from "./types";
-
+import { BookCategory, BookFormat, BookStatus } from "./types";
 
 export default __t.row({
   id: __t.string().primaryKey(),

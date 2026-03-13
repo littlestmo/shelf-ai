@@ -386,8 +386,8 @@ export default function HomePage() {
               overdueText:
                 overdueBooks > 0
                   ? t("user.home.greeting.andOverdue", {
-                    overdue: overdueBooks,
-                  })
+                      overdue: overdueBooks,
+                    })
                   : "",
             })}
           </p>

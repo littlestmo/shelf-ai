@@ -13,7 +13,9 @@
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .bellButton:hover {
@@ -185,7 +187,9 @@
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  transition: color 0.2s, background 0.2s;
+  transition:
+    color 0.2s,
+    background 0.2s;
 }
 
 .markReadBtn:hover {

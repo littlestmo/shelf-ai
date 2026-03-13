@@ -227,7 +227,9 @@
   font-weight: 600;
   cursor: pointer;
   align-self: flex-start;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .exportButton:hover {

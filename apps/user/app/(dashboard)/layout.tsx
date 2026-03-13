@@ -7,7 +7,15 @@ import { ThemeToggle } from "@shelf-ai/ui/theme-toggle";
 import { LanguageToggle } from "@shelf-ai/ui/language-toggle";
 import { UserSyncWrapper } from "./user-sync-wrapper";
 import { NotificationBellConnected } from "./notification-bell-connected";
-import { Sparkles, Upload, User, Home, Search, BookMarked, Wand2 } from "lucide-react";
+import {
+  Sparkles,
+  Upload,
+  User,
+  Home,
+  Search,
+  BookMarked,
+  Wand2,
+} from "lucide-react";
 import { SpacetimeDBProvider } from "@shelf-ai/shared/spacetimedb";
 import { useTranslation } from "react-i18next";
 import styles from "./layout.module.css";

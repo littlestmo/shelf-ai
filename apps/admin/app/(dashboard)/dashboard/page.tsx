@@ -69,7 +69,11 @@ function ChartTooltip({
     <div className={styles.tooltipContainer}>
       <p className={styles.tooltipLabel}>{label}</p>
       {payload.map((entry) => (
-        <p key={entry.name} style={{ color: entry.color }} className={styles.tooltipEntry}>
+        <p
+          key={entry.name}
+          style={{ color: entry.color }}
+          className={styles.tooltipEntry}
+        >
           {entry.name}: <strong>{entry.value}</strong>
         </p>
       ))}
@@ -88,7 +92,9 @@ export default function DashboardPage() {
   const activeUsers = users.filter((u) => u.status.tag === "Active").length;
   const activeBorrows = records.filter((r) => r.status.tag === "Active").length;
   const overdueCount = records.filter((r) => r.status.tag === "Overdue").length;
-  const returnedCount = records.filter((r) => r.status.tag === "Returned").length;
+  const returnedCount = records.filter(
+    (r) => r.status.tag === "Returned",
+  ).length;
   const totalCopies = books.reduce((sum, b) => sum + b.totalCopies, 0);
   const availableCopies = books.reduce((sum, b) => sum + b.availableCopies, 0);
 
@@ -101,7 +107,20 @@ export default function DashboardPage() {
   };
 
   const monthlyData = useMemo(() => {
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
     const currentYear = new Date().getFullYear();
     return months.map((month, i) => {
       const monthRecords = records.filter((r) => {
@@ -111,7 +130,8 @@ export default function DashboardPage() {
       return {
         month,
         borrowed: monthRecords.length,
-        returned: monthRecords.filter((r) => r.status.tag === "Returned").length,
+        returned: monthRecords.filter((r) => r.status.tag === "Returned")
+          .length,
         overdue: monthRecords.filter((r) => r.status.tag === "Overdue").length,
       };
     });
@@ -155,11 +175,19 @@ export default function DashboardPage() {
     return Object.entries(counts).map(([name, value]) => ({
       name,
       value,
-      color: name === "Hardcopy" ? "#f97316" : name === "Ebook" ? "#8b5cf6" : "#3b82f6",
+      color:
+        name === "Hardcopy"
+          ? "#f97316"
+          : name === "Ebook"
+            ? "#8b5cf6"
+            : "#3b82f6",
     }));
   }, [books]);
 
-  const utilizationRate = totalCopies > 0 ? Math.round(((totalCopies - availableCopies) / totalCopies) * 100) : 0;
+  const utilizationRate =
+    totalCopies > 0
+      ? Math.round(((totalCopies - availableCopies) / totalCopies) * 100)
+      : 0;
 
   return (
     <main
@@ -211,30 +239,82 @@ export default function DashboardPage() {
         <article className={styles.card}>
           <div className={styles.cardHeader}>
             <h2 className={styles.cardTitle}>
-              <TrendingUp size={15} className={styles.titleIcon} aria-hidden="true" />
+              <TrendingUp
+                size={15}
+                className={styles.titleIcon}
+                aria-hidden="true"
+              />
               Borrowing Trends
             </h2>
-            <span className={styles.cardSubtitle}>Monthly borrow, return & overdue activity</span>
+            <span className={styles.cardSubtitle}>
+              Monthly borrow, return & overdue activity
+            </span>
           </div>
           <ResponsiveContainer width="100%" height={240}>
-            <AreaChart data={monthlyData} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
+            <AreaChart
+              data={monthlyData}
+              margin={{ top: 5, right: 10, left: -20, bottom: 0 }}
+            >
               <defs>
-                <linearGradient id="adminGradBorrow" x1="0" y1="0" x2="0" y2="1">
+                <linearGradient
+                  id="adminGradBorrow"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
                   <stop offset="5%" stopColor="#f97316" stopOpacity={0.3} />
                   <stop offset="95%" stopColor="#f97316" stopOpacity={0} />
                 </linearGradient>
-                <linearGradient id="adminGradReturn" x1="0" y1="0" x2="0" y2="1">
+                <linearGradient
+                  id="adminGradReturn"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
                   <stop offset="5%" stopColor="#10b981" stopOpacity={0.25} />
                   <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
-              <XAxis dataKey="month" tick={{ fill: "var(--text-muted)", fontSize: 11 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill: "var(--text-muted)", fontSize: 11 }} axisLine={false} tickLine={false} />
+              <XAxis
+                dataKey="month"
+                tick={{ fill: "var(--text-muted)", fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <YAxis
+                tick={{ fill: "var(--text-muted)", fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+              />
               <Tooltip content={<ChartTooltip />} />
-              <Area type="monotone" dataKey="borrowed" name="Borrowed" stroke="#f97316" fill="url(#adminGradBorrow)" strokeWidth={2} />
-              <Area type="monotone" dataKey="returned" name="Returned" stroke="#10b981" fill="url(#adminGradReturn)" strokeWidth={2} />
-              <Area type="monotone" dataKey="overdue" name="Overdue" stroke="#ef4444" fill="none" strokeWidth={2} strokeDasharray="4 2" />
+              <Area
+                type="monotone"
+                dataKey="borrowed"
+                name="Borrowed"
+                stroke="#f97316"
+                fill="url(#adminGradBorrow)"
+                strokeWidth={2}
+              />
+              <Area
+                type="monotone"
+                dataKey="returned"
+                name="Returned"
+                stroke="#10b981"
+                fill="url(#adminGradReturn)"
+                strokeWidth={2}
+              />
+              <Area
+                type="monotone"
+                dataKey="overdue"
+                name="Overdue"
+                stroke="#ef4444"
+                fill="none"
+                strokeWidth={2}
+                strokeDasharray="4 2"
+              />
             </AreaChart>
           </ResponsiveContainer>
         </article>
@@ -242,7 +322,11 @@ export default function DashboardPage() {
         <article className={styles.card}>
           <div className={styles.cardHeader}>
             <h2 className={styles.cardTitle}>
-              <BookOpen size={15} className={styles.titleIcon} aria-hidden="true" />
+              <BookOpen
+                size={15}
+                className={styles.titleIcon}
+                aria-hidden="true"
+              />
               Category Distribution
             </h2>
             <span className={styles.cardSubtitle}>Books by category</span>
@@ -279,19 +363,51 @@ export default function DashboardPage() {
         <article className={styles.card}>
           <div className={styles.cardHeader}>
             <h2 className={styles.cardTitle}>
-              <Activity size={15} className={styles.titleIcon} aria-hidden="true" />
+              <Activity
+                size={15}
+                className={styles.titleIcon}
+                aria-hidden="true"
+              />
               Monthly Overview
             </h2>
-            <span className={styles.cardSubtitle}>Borrowed vs returned per month</span>
+            <span className={styles.cardSubtitle}>
+              Borrowed vs returned per month
+            </span>
           </div>
           <ResponsiveContainer width="100%" height={200}>
-            <BarChart data={monthlyData} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-              <XAxis dataKey="month" tick={{ fill: "var(--text-muted)", fontSize: 11 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill: "var(--text-muted)", fontSize: 11 }} axisLine={false} tickLine={false} />
+            <BarChart
+              data={monthlyData}
+              margin={{ top: 5, right: 10, left: -20, bottom: 0 }}
+            >
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke="var(--border)"
+                vertical={false}
+              />
+              <XAxis
+                dataKey="month"
+                tick={{ fill: "var(--text-muted)", fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <YAxis
+                tick={{ fill: "var(--text-muted)", fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+              />
               <Tooltip content={<ChartTooltip />} />
-              <Bar dataKey="borrowed" name="Borrowed" fill="#f97316" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="returned" name="Returned" fill="#10b981" radius={[4, 4, 0, 0]} />
+              <Bar
+                dataKey="borrowed"
+                name="Borrowed"
+                fill="#f97316"
+                radius={[4, 4, 0, 0]}
+              />
+              <Bar
+                dataKey="returned"
+                name="Returned"
+                fill="#10b981"
+                radius={[4, 4, 0, 0]}
+              />
             </BarChart>
           </ResponsiveContainer>
         </article>
@@ -299,14 +415,21 @@ export default function DashboardPage() {
         <article className={styles.card}>
           <div className={styles.cardHeader}>
             <h2 className={styles.cardTitle}>Library Utilization</h2>
-            <span className={styles.cardSubtitle}>Current inventory status</span>
+            <span className={styles.cardSubtitle}>
+              Current inventory status
+            </span>
           </div>
           <div className={styles.utilizationGrid}>
             <div className={styles.utilizationItem}>
-              <span className={styles.utilizationValue}>{utilizationRate}%</span>
+              <span className={styles.utilizationValue}>
+                {utilizationRate}%
+              </span>
               <span className={styles.utilizationLabel}>Utilization Rate</span>
               <div className={styles.utilizationBar}>
-                <div className={styles.utilizationFill} style={{ width: `${utilizationRate}%` }} />
+                <div
+                  className={styles.utilizationFill}
+                  style={{ width: `${utilizationRate}%` }}
+                />
               </div>
             </div>
             <div className={styles.utilizationItem}>
@@ -318,7 +441,9 @@ export default function DashboardPage() {
               <span className={styles.utilizationLabel}>Active Branches</span>
             </div>
             <div className={styles.utilizationItem}>
-              <span className={styles.utilizationValue}>{formatDistribution.length}</span>
+              <span className={styles.utilizationValue}>
+                {formatDistribution.length}
+              </span>
               <span className={styles.utilizationLabel}>Book Formats</span>
             </div>
           </div>
@@ -364,7 +489,12 @@ export default function DashboardPage() {
                   <div className={styles.recordSubtitle}>{book.author}</div>
                 </div>
                 <div className={styles.ratingBadge}>
-                  <Star size={12} fill="#eab308" color="#eab308" aria-hidden="true" />
+                  <Star
+                    size={12}
+                    fill="#eab308"
+                    color="#eab308"
+                    aria-hidden="true"
+                  />
                   {book.rating.toFixed(1)}
                 </div>
               </div>
@@ -375,13 +505,19 @@ export default function DashboardPage() {
         <article className={styles.card}>
           <div className={styles.cardHeader}>
             <h2 className={styles.cardTitle}>
-              <Clock size={15} className={styles.titleIcon} aria-hidden="true" />
+              <Clock
+                size={15}
+                className={styles.titleIcon}
+                aria-hidden="true"
+              />
               Recent Activity
             </h2>
           </div>
           <div className={styles.timeline}>
             {recentRecords.length === 0 && (
-              <p className={styles.emptyText}>{t("admin.dashboard.noRecords")}</p>
+              <p className={styles.emptyText}>
+                {t("admin.dashboard.noRecords")}
+              </p>
             )}
             {recentRecords.map((r) => {
               const book = books.find((b) => b.id === r.bookId);
@@ -392,7 +528,11 @@ export default function DashboardPage() {
                     className={styles.timelineDot}
                     style={{
                       background:
-                        r.status.tag === "Active" ? "#3b82f6" : r.status.tag === "Overdue" ? "#ef4444" : "#10b981",
+                        r.status.tag === "Active"
+                          ? "#3b82f6"
+                          : r.status.tag === "Overdue"
+                            ? "#ef4444"
+                            : "#10b981",
                     }}
                   />
                   <div className={styles.timelineContent}>

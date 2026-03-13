@@ -19,7 +19,10 @@ interface NotificationBellProps {
   onMarkRead: (id: string) => void;
 }
 
-export function NotificationBell({ notifications, onMarkRead }: NotificationBellProps) {
+export function NotificationBell({
+  notifications,
+  onMarkRead,
+}: NotificationBellProps) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -57,7 +60,7 @@ export function NotificationBell({ notifications, onMarkRead }: NotificationBell
       <button
         className={styles.bellButton}
         onClick={() => setOpen((prev) => !prev)}
-        aria-label={t("ui.notifications.bellLabel") || `Notifications (${unreadCount} unread)`}
+        aria-label={t("ui.notifications.bellLabel", { count: unreadCount })}
         aria-expanded={open}
         aria-haspopup="true"
         type="button"
@@ -74,17 +77,17 @@ export function NotificationBell({ notifications, onMarkRead }: NotificationBell
         <div
           className={styles.dropdown}
           role="region"
-          aria-label={t("ui.notifications.panelLabel") || "Notifications panel"}
+          aria-label={t("ui.notifications.panelLabel")}
           aria-live="polite"
         >
           <div className={styles.dropdownHeader}>
             <h3 className={styles.dropdownTitle}>
-              {t("ui.notifications.title") || "Notifications"}
+              {t("ui.notifications.title")}
             </h3>
             <button
               className={styles.closeBtn}
               onClick={() => setOpen(false)}
-              aria-label={t("ui.notifications.close") || "Close notifications"}
+              aria-label={t("ui.notifications.close")}
               type="button"
             >
               <X size={16} aria-hidden="true" />
@@ -94,7 +97,7 @@ export function NotificationBell({ notifications, onMarkRead }: NotificationBell
           <div className={styles.listContainer} role="list">
             {notifications.length === 0 && (
               <div className={styles.emptyState} role="status">
-                {t("ui.notifications.empty") || "No notifications"}
+                {t("ui.notifications.empty")}
               </div>
             )}
             {notifications.map((notif) => (
