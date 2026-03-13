@@ -8,7 +8,6 @@ import {
   Menu,
   X,
   Search,
-  Bell,
   ChevronsLeft,
   ChevronsRight,
 } from "lucide-react";
