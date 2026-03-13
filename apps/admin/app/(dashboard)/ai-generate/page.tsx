@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, Wand2, Upload } from "lucide-react";
+import { Sparkles, Wand2, Upload, FileText } from "lucide-react";
 import { PageHeader } from "@shelf-ai/ui/page-header";
 import { Button } from "@shelf-ai/ui/button";
 import { Select } from "@shelf-ai/ui/select";
@@ -29,6 +29,15 @@ interface AiBookResult {
   edition: string;
 }
 
+function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 export default function AiGeneratePage() {
   const { t } = useTranslation();
   const [mode, setMode] = useState<"ai" | "manual">("ai");
@@ -37,6 +46,7 @@ export default function AiGeneratePage() {
   const [aiResult, setAiResult] = useState<AiBookResult | null>(null);
   const [aiError, setAiError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
+  const [pdfFile, setPdfFile] = useState<File | null>(null);
   const addBook = useAddBook();
   const branches = useBranches();
 
@@ -99,8 +109,9 @@ export default function AiGeneratePage() {
     setSaved(true);
   };
 
-  const onManualSubmit = (data: AddBookInput) => {
+  const onManualSubmit = async (data: AddBookInput) => {
     const formatArr = data.format ? [data.format] : ["Hardcopy"];
+    if (pdfFile && !formatArr.includes("Ebook")) formatArr.push("Ebook");
     addBook({
       title: data.title,
       author: data.author,
@@ -119,6 +130,7 @@ export default function AiGeneratePage() {
       coverUrl: data.coverUrl,
     });
     reset();
+    setPdfFile(null);
   };
 
   return (
@@ -278,6 +290,58 @@ export default function AiGeneratePage() {
               onSubmit={handleSubmit(onManualSubmit)}
               className={styles.form}
             >
+              <div
+                className={`${styles.dropzone} ${pdfFile ? styles.dropzoneActive : styles.dropzoneInactive}`}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  const file = e.dataTransfer.files[0];
+                  if (file?.type === "application/pdf") setPdfFile(file);
+                }}
+                role="region"
+                aria-label="PDF upload area"
+              >
+                {pdfFile ? (
+                  <>
+                    <FileText size={36} color="var(--accent)" aria-hidden="true" />
+                    <div className={styles.panelTitle}>{pdfFile.name}</div>
+                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>
+                      {(pdfFile.size / 1024 / 1024).toFixed(2)} MB
+                    </div>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => setPdfFile(null)}
+                    >
+                      Remove
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Upload size={36} color="var(--text-muted)" aria-hidden="true" />
+                    <div className={styles.panelTitle}>Upload PDF (optional)</div>
+                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>
+                      Drag and drop or browse for a PDF file
+                    </div>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => document.getElementById("admin-pdf-upload")?.click()}
+                    >
+                      Browse Files
+                    </Button>
+                    <input
+                      id="admin-pdf-upload"
+                      type="file"
+                      accept=".pdf"
+                      style={{ display: "none" }}
+                      onChange={(e) => {
+                        if (e.target.files?.[0]) setPdfFile(e.target.files[0]);
+                      }}
+                    />
+                  </>
+                )}
+              </div>
               <div className={styles.formGrid2}>
                 <FormField
                   label={t("admin.books.form.title")}
