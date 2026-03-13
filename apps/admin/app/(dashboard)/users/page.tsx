@@ -38,8 +38,20 @@ export default function UsersPage() {
   const suspendUser = useSuspendUser();
   const activateUser = useActivateUser();
 
+  const uniqueUsers = useMemo(() => {
+    const seen = new Set<string>();
+    const unique: typeof users = [];
+    for (const u of users) {
+      if (!seen.has(u.clerkId)) {
+        seen.add(u.clerkId);
+        unique.push(u);
+      }
+    }
+    return unique;
+  }, [users]);
+
   const filtered = useMemo(() => {
-    let result = users;
+    let result = uniqueUsers;
     if (search) {
       const q = search.toLowerCase();
       result = result.filter(
