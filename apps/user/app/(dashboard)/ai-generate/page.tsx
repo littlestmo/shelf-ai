@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Wand2, BookOpen, Loader2 } from "lucide-react";
+import { Wand2, BookOpen } from "lucide-react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PageHeader } from "@shelf-ai/ui/page-header";
@@ -130,176 +130,54 @@ export default function AiGeneratePage() {
         icon={<Wand2 size={22} aria-hidden="true" />}
       />
 
-      <nav className={styles.modeToggle} aria-label="Creation mode">
-        {(["ai", "manual"] as const).map((m) => (
-          <button
-            key={m}
-            className={`${styles.modeButton} ${mode === m ? styles.modeButtonActive : styles.modeButtonInactive}`}
-            onClick={() => setMode(m)}
-            aria-pressed={mode === m}
-            type="button"
-          >
-            {m === "ai" ? (
-              <Wand2 size={14} className={styles.buttonIcon} aria-hidden="true" />
+      <section className={styles.panel} aria-label={t("user.aiGenerate.modes.ai")}>
+        <h2 className={styles.panelTitle}>{t("user.aiGenerate.ai.promptTitle")}</h2>
+        <textarea
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          rows={4}
+          className={textareaClass}
+          placeholder={t("user.aiGenerate.ai.placeholder") || "e.g. A dystopian novel about a society where books are banned..."}
+          aria-label={t("user.aiGenerate.ai.promptTitle")}
+        />
+        <div className={styles.marginTop12}>
+          <Button onClick={handleGenerate} disabled={loading} loading={loading}>
+            {loading ? t("user.aiGenerate.ai.generating") : t("user.aiGenerate.ai.generate")}
+          </Button>
+        </div>
+        {error && (
+          <p className={styles.errorText} role="alert">
+            {error}
+          </p>
+        )}
+      </section>
+
+      {result && (
+        <section className={styles.resultPanel} aria-label="Generated book result">
+          <h2 className={styles.resultTitle}>{result.title}</h2>
+          <p className={styles.resultAuthor}>{t("user.bookDetails.by")} {result.author}</p>
+
+          <h3 className={styles.resultHeading}>{t("user.aiGenerate.ai.synopsis")}</h3>
+          <p className={styles.resultText}>{result.synopsis}</p>
+
+          <h3 className={styles.resultHeading}>{t("user.aiGenerate.ai.chapters")}</h3>
+          <ol className={styles.chapterList}>
+            {result.chapters.map((ch, i) => (
+              <li key={i}>{ch}</li>
+            ))}
+          </ol>
+
+          <div className={styles.formActions}>
+            {saved ? (
+              <span className={styles.savedText} role="status">
+                {t("user.aiGenerate.ai.saved")}
+              </span>
             ) : (
-              <BookOpen size={14} className={styles.buttonIcon} aria-hidden="true" />
-            )}
-            {m === "ai" ? "AI Generate" : "Manual Entry"}
-          </button>
-        ))}
-      </nav>
-
-      {mode === "ai" && (
-        <>
-          <section className={styles.panel} aria-label="AI prompt">
-            <h2 className={styles.panelTitle}>Describe the book you want to generate</h2>
-            <textarea
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              rows={4}
-              className={textareaClass}
-              placeholder="e.g. A dystopian novel about a society where books are banned..."
-              aria-label="Book description prompt"
-            />
-            <div className={styles.marginTop12}>
-              <Button onClick={handleGenerate} disabled={loading} loading={loading}>
-                {loading ? "Generating..." : "Generate Book"}
+              <Button onClick={handleSaveGenerated}>
+                {t("user.aiGenerate.ai.save")}
               </Button>
-            </div>
-            {error && (
-              <p className={styles.errorText} role="alert">
-                {error}
-              </p>
             )}
-          </section>
-
-          {result && (
-            <section className={styles.resultPanel} aria-label="Generated book result">
-              <h2 className={styles.resultTitle}>{result.title}</h2>
-              <p className={styles.resultAuthor}>by {result.author}</p>
-
-              <h3 className={styles.resultHeading}>Synopsis</h3>
-              <p className={styles.resultText}>{result.synopsis}</p>
-
-              <h3 className={styles.resultHeading}>Chapters</h3>
-              <ol className={styles.chapterList}>
-                {result.chapters.map((ch, i) => (
-                  <li key={i}>{ch}</li>
-                ))}
-              </ol>
-
-              <div className={styles.formActions}>
-                {saved ? (
-                  <span className={styles.savedText} role="status">
-                    ✓ Saved to library
-                  </span>
-                ) : (
-                  <Button onClick={handleSaveGenerated}>
-                    Save to Library
-                  </Button>
-                )}
-              </div>
-            </section>
-          )}
-        </>
-      )}
-
-      {mode === "manual" && (
-        <section className={styles.panel} aria-label="Manual book entry">
-          <form onSubmit={handleSubmit(handleManualSubmit)} className={styles.form}>
-            <div className={styles.formGrid2}>
-              <FormField label="Title" error={errors.title?.message}>
-                <input {...register("title")} className={inputClass} />
-              </FormField>
-              <FormField label="Author" error={errors.author?.message}>
-                <input {...register("author")} className={inputClass} />
-              </FormField>
-            </div>
-            <div className={styles.formGrid2}>
-              <FormField label="ISBN" error={errors.isbn?.message}>
-                <input {...register("isbn")} className={inputClass} />
-              </FormField>
-              <FormField label="Category" error={errors.category?.message}>
-                <Controller
-                  name="category"
-                  control={control}
-                  render={({ field }) => (
-                    <Select
-                      options={BOOK_CATEGORIES.map((c) => ({
-                        label: c,
-                        value: c,
-                      }))}
-                      value={field.value ? { label: field.value, value: field.value } : null}
-                      onChange={(val) => field.onChange(val?.value)}
-                      onBlur={field.onBlur}
-                      placeholder="Select category"
-                    />
-                  )}
-                />
-              </FormField>
-            </div>
-            <div className={styles.formGrid3}>
-              <FormField label="Publisher" error={errors.publisher?.message}>
-                <input {...register("publisher")} className={inputClass} />
-              </FormField>
-              <FormField label="Published Date" error={errors.publishedDate?.message}>
-                <Controller
-                  name="publishedDate"
-                  control={control}
-                  render={({ field }) => (
-                    <DatePicker
-                      value={field.value ? new Date(field.value) : undefined}
-                      onChange={(date) => field.onChange(date ? format(date, "yyyy-MM-dd") : "")}
-                      placeholder="Select date"
-                    />
-                  )}
-                />
-              </FormField>
-              <FormField label="Copies" error={errors.totalCopies?.message}>
-                <input
-                  type="number"
-                  {...register("totalCopies", { valueAsNumber: true })}
-                  className={inputClass}
-                />
-              </FormField>
-            </div>
-            <div className={styles.formGrid2}>
-              <FormField label="Location">
-                <input {...register("location")} className={inputClass} />
-              </FormField>
-              <FormField label="Branch">
-                <Controller
-                  name="branchId"
-                  control={control}
-                  render={({ field }) => (
-                    <Select
-                      options={branches.map((b) => ({
-                        label: b.name,
-                        value: b.id,
-                      }))}
-                      value={
-                        field.value
-                          ? {
-                              label: branches.find((b) => b.id === field.value)?.name || "",
-                              value: field.value,
-                            }
-                          : null
-                      }
-                      onChange={(val) => field.onChange(val?.value)}
-                      onBlur={field.onBlur}
-                      placeholder="Select branch"
-                    />
-                  )}
-                />
-              </FormField>
-            </div>
-            <FormField label="Description">
-              <textarea {...register("description")} rows={3} className={textareaClass} />
-            </FormField>
-            <div className={styles.formActions}>
-              <Button type="submit">Add Book</Button>
-            </div>
-          </form>
+          </div>
         </section>
       )}
     </main>
