@@ -15,23 +15,7 @@ import { Button } from "@shelf-ai/ui/button";
 import { useTranslation } from "react-i18next";
 import styles from "./page.module.css";
 
-const MOCK_CHAPTER = `
-  The morning sun crested the horizon, casting a golden hue over the sleeping city.
-  It was a day that felt different from the rest—a quiet prologue to the chaos that would inevitably unfold.
-  As she walked down the cobblestone streets, the familiar scent of fresh rain and old paper lingered in the air, wrapping her in a comforting embrace. Every building seemed to whisper secrets of the past, leaning intimately towards one another as if exchanging gossip. 
-  
-  She adjusted the strap of her satchel, the worn leather familiar against her shoulder. Inside lay the artifact she had spent months hunting—a device so inconspicuous it could easily be mistaken for a child&apos;s toy, yet holding the power to unravel the very fabric of their society.
-  
-  &quot;You&apos;re late,&quot; a voice murmured from the shadows of the alleyway ahead. 
-  
-  She didn&apos;t startle. She knew he&apos;d be there. &quot;I had to take the long route. Watchers were posted at the main square.&quot;
-  
-  He stepped into the faint morning light, his face lined with the exhaustion of a thousand sleepless nights. &quot;Do you have it?&quot;
-  
-  She nodded, her hand resting instinctively over the satchel. &quot;Yes. But we can&apos;t do this here. We need to go below.&quot;
-  
-  The descent into the catacombs was perilous, the air growing thick and damp with every step. Down here, the city's whispers were deafening.
-`;
+
 
 export default function BookReaderPage() {
   const { t } = useTranslation();
@@ -52,19 +36,20 @@ export default function BookReaderPage() {
 
   const fontSize = "1.1rem";
   const fontFamily = "var(--font-body)";
-  const [progress, setProgress] = useState(12);
-
   const [chapterNotice, setChapterNotice] = useState("");
+  const [pdfUrl, setPdfUrl] = useState<string | null>(null);
 
-  const handleNextChapter = () => {
-    setProgress((prev) => Math.min(100, prev + 8));
-    setChapterNotice(t("user.read.notices.pushedNext"));
-  };
-
-  const handlePrevChapter = () => {
-    setProgress((prev) => Math.max(0, prev - 8));
-    setChapterNotice(t("user.read.notices.pushedPrev"));
-  };
+  useEffect(() => {
+    if (book?.pdfData) {
+      if (book.pdfData.startsWith("data:application/pdf")) {
+        setPdfUrl(book.pdfData);
+      } else {
+        setPdfUrl(`data:application/pdf;base64,${book.pdfData}`);
+      }
+    } else {
+      setPdfUrl(null);
+    }
+  }, [book]);
 
   useEffect(() => {
     if (chapterNotice) {
@@ -86,7 +71,6 @@ export default function BookReaderPage() {
       className={styles.readerContainer}
       aria-label={t("user.read.readerAria")}
     >
-      {/* ARIA Announcer */}
       <div
         aria-live="polite"
         aria-atomic="true"
@@ -95,7 +79,6 @@ export default function BookReaderPage() {
         {chapterNotice}
       </div>
 
-      {/* Reader Top Navigation Bar */}
       <header className={styles.topBar} role="banner">
         <div className={styles.topLeftGroup}>
           <Button
@@ -135,62 +118,41 @@ export default function BookReaderPage() {
         </div>
       </header>
 
-      {/* Main Reading Area */}
       <main role="main" className={styles.mainArea}>
         <div className={styles.chapterHeader}>
-          <h2 className={styles.chapterTitle}>Chapter 4</h2>
-          <p className={styles.chapterSubtitle}>The Outset</p>
+          <h2 className={styles.chapterTitle}>{book.title}</h2>
+          <p className={styles.chapterSubtitle}>By {book.author}</p>
         </div>
 
-        <article
-          className={styles.articleText}
-          style={{ fontSize, fontFamily }}
-          aria-label="Book text content"
-        >
-          {MOCK_CHAPTER.repeat(3)}
-        </article>
-
-        <div className={styles.navigationContainer}>
-          <Button
-            variant="secondary"
-            onClick={handlePrevChapter}
-            disabled={progress === 0}
+        {pdfUrl ? (
+          <div className={styles.pdfViewerContainer}>
+            <object
+              data={pdfUrl}
+              type="application/pdf"
+              width="100%"
+              height="100%"
+              aria-label={`PDF viewer for ${book.title}`}
+              className={styles.pdfObject}
+            >
+              <div className={styles.fallbackPdf}>
+                <p>It appears your browser doesn't support embedded PDFs.</p>
+                <a href={pdfUrl} download={`${book.title}.pdf`}>
+                  <Button variant="secondary">Download PDF</Button>
+                </a>
+              </div>
+            </object>
+          </div>
+        ) : (
+          <article
+            className={styles.articleText}
+            style={{ fontSize, fontFamily, textAlign: "center", color: "var(--text-muted)", marginTop: "4rem" }}
+            aria-label="No PDF available message"
           >
-            <ChevronLeft size={16} className={styles.navIconLeft} />{" "}
-            {t("user.read.prevChapter")}
-          </Button>
-          <Button
-            variant="secondary"
-            onClick={handleNextChapter}
-            disabled={progress >= 100}
-          >
-            {t("user.read.nextChapter")}{" "}
-            <ChevronRight size={16} className={styles.navIconRight} />
-          </Button>
-        </div>
+            <p>No PDF available for this book.</p>
+          </article>
+        )}
       </main>
 
-      {/* Reader Bottom Progress Bar */}
-      <footer
-        className={styles.footerBar}
-        role="contentinfo"
-        aria-label={t("user.read.progressAria")}
-      >
-        <span className={styles.progressText}>{progress}%</span>
-        <div
-          role="progressbar"
-          aria-valuenow={progress}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          className={styles.progressBarTrack}
-        >
-          <div
-            className={styles.progressBarFill}
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-        <span className={styles.timeLeftText}>{t("user.read.timeLeft")}</span>
-      </footer>
     </div>
   );
 }
