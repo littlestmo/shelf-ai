@@ -150,7 +150,16 @@
       "contactNo": "رقم الاتصال",
       "scanBarcode": "مسح الباركود للرقم {{id}}",
       "support": "دعم المكتبة: +1 (800) 456-7890",
-      "website": "الموقع: https://shelfai.up.railway.app"
+      "website": "الموقع: https://shelfai.up.railway.app",
+      "exportPng": "تصدير كصورة PNG"
+    },
+    "notifications": {
+      "bellLabel": "الإشعارات ({{count}} غير مقروءة)",
+      "panelLabel": "لوحة الإشعارات",
+      "title": "الإشعارات",
+      "close": "إغلاق الإشعارات",
+      "empty": "لا توجد إشعارات",
+      "markRead": "تحديد \"{{title}}\" كمقروء"
     },
     "searchInput": {
       "placeholder": "بحث..."
@@ -339,11 +348,17 @@
         "generate": "توليد",
         "by": "بواسطة {{author}}",
         "synopsis": "الملخص",
-        "chapters": "الفصول"
+        "chapters": "الفصول",
+        "saved": "✓ تم حفظ الكتاب في المكتبة",
+        "save": "حفظ في المكتبة"
       },
       "manual": {
         "select": "اختر",
-        "add": "إضافة كتاب"
+        "add": "إضافة كتاب",
+        "uploadPdf": "تحميل ملف PDF (اختياري)",
+        "dragDrop": "قم بالسحب والإفلات أو تصفح بحثًا عن ملف PDF",
+        "browseFiles": "تصفح الملفات",
+        "remove": "إزالة"
       }
     }
   },
@@ -352,8 +367,9 @@
       "menu": {
         "home": "الرئيسية",
         "search": "البحث",
-        "shelf": "الرف",
+        "shelf": "رفي الكتب",
         "aiSearch": "البحث بالذكاء الاصطناعي",
+        "aiGenerate": "مولد الكتب بالذكاء الاصطناعي",
         "contribute": "المساهمة",
         "profile": "الملف الشخصي"
       },
@@ -564,6 +580,24 @@
         "selectBranch": "اختر الفرع",
         "description": "الوصف",
         "submit": "إرسال الكتاب"
+      }
+    },
+    "aiGenerate": {
+      "title": "مولد الكتب بالذكاء الاصطناعي",
+      "subtitle": "إنشاء الكتب بالذكاء الاصطناعي أو إضافتها يدوياً للمكتبة",
+      "modes": {
+        "ai": "توليد بالذكاء الاصطناعي",
+        "manual": "إدخال يدوي"
+      },
+      "ai": {
+        "promptTitle": "صف الكتاب الذي تريد إنشاءه",
+        "placeholder": "على سبيل المثال، رواية بائسة عن مجتمع يتم فيه حظر الكتب...",
+        "generating": "جاري التوليد...",
+        "generate": "توليد الكتاب",
+        "synopsis": "الملخص",
+        "chapters": "الفصول",
+        "saved": "✓ تم الحفظ في المكتبة",
+        "save": "حفظ في المكتبة"
       }
     },
     "profile": {
