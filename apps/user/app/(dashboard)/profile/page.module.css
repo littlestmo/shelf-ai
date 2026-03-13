@@ -25,9 +25,8 @@
 
 .profileHeader {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 32px;
+  flex-direction: column;
+  gap: 24px;
   align-items: flex-start;
 }
 
@@ -75,10 +74,9 @@
 }
 
 .studentCardWrapper {
-  flex: 1;
-  min-width: 320px;
+  width: fit-content;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .form {

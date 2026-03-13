@@ -17,7 +17,7 @@ import {
 import { StudentCard } from "@shelf-ai/ui/student-card";
 import { TabNavigation, type Tab } from "@shelf-ai/ui/tab-navigation";
 import { useUser } from "@clerk/nextjs";
-import { useUpdateUser, useUsers, useEnsureUser } from "@shelf-ai/shared/hooks";
+import { useUpdateUser, useEnsureUser } from "@shelf-ai/shared/hooks";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "next-themes";
 import styles from "./page.module.css";
@@ -55,7 +55,6 @@ export default function ProfilePage() {
   const { t, i18n } = useTranslation();
   const { theme, setTheme } = useTheme();
   const { user } = useUser();
-  const users = useUsers();
   const updateUser = useUpdateUser();
 
   const TABS: Tab[] = [
@@ -240,20 +239,6 @@ export default function ProfilePage() {
         {activeTab === "account" && (
           <div className={styles.accountContainer}>
             <div className={styles.profileHeader}>
-              <div className={styles.avatarSection}>
-                <h3 className={styles.avatarTitle}>
-                  {t("user.profile.account.avatarTitle")}
-                </h3>
-                <div className={styles.avatarContainer}>
-                  <div className={styles.avatarCircle}>
-                    {currentName.charAt(0).toUpperCase()}
-                  </div>
-                  <button className={styles.avatarUploadBtn} type="button">
-                    {t("user.profile.account.uploadPhoto")}
-                  </button>
-                </div>
-              </div>
-
               <div className={styles.studentCardWrapper}>
                 <StudentCard
                   name={currentName}
