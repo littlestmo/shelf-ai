@@ -17,7 +17,7 @@ import {
 import { StudentCard } from "@shelf-ai/ui/student-card";
 import { TabNavigation, type Tab } from "@shelf-ai/ui/tab-navigation";
 import { useUser } from "@clerk/nextjs";
-import { useUpdateUser, useUsers } from "@shelf-ai/shared/hooks";
+import { useUpdateUser, useUsers, useEnsureUser } from "@shelf-ai/shared/hooks";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "next-themes";
 import styles from "./page.module.css";
@@ -60,7 +60,6 @@ export default function ProfilePage() {
 
   const TABS: Tab[] = [
     { id: "account", label: t("user.profile.tabs.account") },
-    { id: "security", label: t("user.profile.tabs.security") },
     { id: "notifications", label: t("user.profile.tabs.notifications") },
     { id: "interface", label: t("user.profile.tabs.interface") },
   ];
@@ -85,10 +84,7 @@ export default function ProfilePage() {
     [],
   );
 
-  const dbUser = React.useMemo(() => {
-    if (!user || !users) return null;
-    return users.find((u) => u.clerkId === user.id);
-  }, [user, users]);
+  const dbUser = useEnsureUser(user);
 
   const getDefaultValues = useCallback((): UpdateProfileInput => {
     if (dbUser) {
@@ -178,11 +174,7 @@ export default function ProfilePage() {
     setTheme(newTheme.toLowerCase());
   };
 
-  const handleManagePassword = () => {
-    if (user) {
-      window.open("https://accounts.clerk.dev/user", "_blank");
-    }
-  };
+
 
   const themeOptions = [
     { key: "dark", label: t("user.profile.interface.themes.dark") },
@@ -356,32 +348,7 @@ export default function ProfilePage() {
           </div>
         )}
 
-        {activeTab === "security" && (
-          <div className={styles.tabContainer}>
-            <div>
-              <h3 className={styles.sectionTitle}>
-                {t("user.profile.security.passwordTitle")}
-              </h3>
-              <p className={styles.sectionDesc}>
-                {t("user.profile.security.passwordDesc")}
-              </p>
-              <Button variant="secondary" onClick={handleManagePassword}>
-                {t("user.profile.security.managePassword")}
-              </Button>
-            </div>
-            <div className={styles.divider}>
-              <h3 className={styles.sectionTitle}>
-                {t("user.profile.security.tfaTitle")}
-              </h3>
-              <p className={styles.sectionDesc}>
-                {t("user.profile.security.tfaDesc")}
-              </p>
-              <Button variant="secondary" onClick={handleManagePassword}>
-                {t("user.profile.security.enableTfa")}
-              </Button>
-            </div>
-          </div>
-        )}
+
 
         {activeTab === "notifications" && (
           <div className={styles.notificationsContainer}>
