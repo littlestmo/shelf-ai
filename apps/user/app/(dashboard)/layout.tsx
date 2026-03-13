@@ -6,7 +6,7 @@ import { DashboardShell, type MenuItem } from "@shelf-ai/ui/dashboard-shell";
 import { ThemeToggle } from "@shelf-ai/ui/theme-toggle";
 import { LanguageToggle } from "@shelf-ai/ui/language-toggle";
 import { UserSyncWrapper } from "@shelf-ai/ui/user-sync-wrapper";
-import { NotificationBellWrapper } from "@shelf-ai/ui/notification-bell-wrapper";
+import { NotificationBellConnected } from "./notification-bell-connected";
 import { Sparkles, Upload, User, Home, Search, BookMarked, Wand2 } from "lucide-react";
 import { SpacetimeDBProvider } from "@shelf-ai/shared/spacetimedb";
 import { useTranslation } from "react-i18next";
@@ -87,7 +87,7 @@ export default function DashboardLayout({
             <>
               <ThemeToggle />
               <LanguageToggle />
-              <NotificationBellWrapper />
+              <NotificationBellConnected />
               <UserButton
                 appearance={{
                   elements: { avatarBox: { width: 34, height: 34 } },

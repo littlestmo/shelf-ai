@@ -9,7 +9,7 @@ import {
 } from "@shelf-ai/shared/hooks";
 import { NotificationBell } from "@shelf-ai/ui/notification-bell";
 
-export function NotificationBellWrapper() {
+export function NotificationBellConnected() {
   const { user } = useUser();
   const dbUser = useEnsureUser(user);
   const notifications = useNotifications(dbUser?.id);
