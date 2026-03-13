@@ -185,7 +185,7 @@ export default function UsersPage() {
     >
       <PageHeader
         title={t("admin.users.title")}
-        subtitle={t("admin.users.subtitle", { count: users.length })}
+        subtitle={t("admin.users.subtitle", { count: uniqueUsers.length })}
         icon={<UsersIcon size={22} />}
       />
 
