@@ -12,6 +12,13 @@ pub fn add_user(
     membership_type: MembershipType,
 ) {
     let now = ctx.timestamp;
+
+    // Prevent duplicate inserts for the same Clerk user
+    if ctx.db.library_user().iter().any(|u| u.clerk_id == clerk_id) {
+        log::info!("User with clerk_id {} already exists. Skipping insert.", clerk_id);
+        return;
+    }
+
     let id = generate_id("user", ctx);
     let borrow_limit = match membership_type {
         MembershipType::Basic => 3,
