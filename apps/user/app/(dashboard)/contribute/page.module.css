@@ -103,6 +103,13 @@
 .formActions {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 8px;
   margin-top: 8px;
+}
+
+.successText {
+  color: var(--stat-green);
+  font-size: 0.82rem;
+  font-weight: 600;
 }

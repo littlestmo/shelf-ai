@@ -25,16 +25,19 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/littlestmo/shelf-ai/actions/workflows/admin-build.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlestmo/shelf-ai/admin-build.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Admin Build" alt="Admin Build" /></a>
-  <a href="https://github.com/littlestmo/shelf-ai/actions/workflows/user-build.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlestmo/shelf-ai/user-build.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=User Build" alt="User Build" /></a>
-  <a href="https://github.com/littlestmo/shelf-ai/actions/workflows/lint.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlestmo/shelf-ai/lint.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Lint Check" alt="Lint Check" /></a>
   <a href="https://github.com/littlestmo/shelf-ai/actions/workflows/typecheck.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlestmo/shelf-ai/typecheck.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Typecheck" alt="Typecheck" /></a>
   <a href="https://github.com/littlestmo/shelf-ai/actions/workflows/prettier.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlestmo/shelf-ai/prettier.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Prettier" alt="Prettier Check" /></a>
-  <br />
+</p>
+
+<!--Github ain't rendering this, not sure why?-->
+<!--<p align="center">
   <a href="https://github.com/littlestmo/shelf-ai/actions/workflows/security-audit.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlestmo/shelf-ai/security-audit.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Security Audit" alt="Security Audit" /></a>
   <a href="https://github.com/littlestmo/shelf-ai/actions/workflows/server-clippy.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlestmo/shelf-ai/server-clippy.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Server Clippy" alt="Server Clippy" /></a>
   <a href="https://github.com/littlestmo/shelf-ai/actions/workflows/server-fmt.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlestmo/shelf-ai/server-fmt.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Server Fmt" alt="Server Fmt" /></a>
-</p>
+  <a href="https://github.com/littlestmo/shelf-ai/actions/workflows/admin-build.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlestmo/shelf-ai/admin-build.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Admin Build" alt="Admin Build" /></a>
+  <a href="https://github.com/littlestmo/shelf-ai/actions/workflows/user-build.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlestmo/shelf-ai/user-build.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=User Build" alt="User Build" /></a>
+  <a href="https://github.com/littlestmo/shelf-ai/actions/workflows/lint.yml"><img src="https://img.shields.io/github/actions/workflow/status/littlestmo/shelf-ai/lint.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Lint Check" alt="Lint Check" /></a>
+</p>-->
 
 ## Overview
 
@@ -395,14 +398,15 @@ Admin: `http://localhost:3001` · User: `http://localhost:3002`
 
 ## Tutorials
 
-| Guide                                                | Description                                   |
-| :--------------------------------------------------- | :-------------------------------------------- |
-| [Environment Setup](docs/tutorials/setup-env.md)     | Configure all environment variables           |
-| [Clerk Auth Setup](docs/tutorials/clerk-setup.md)    | Get Clerk API keys step by step               |
-| [Google AI Setup](docs/tutorials/google-ai-setup.md) | Get Gemini API key from Google AI Studio      |
-| [SpacetimeDB Setup](docs/tutorials/spacetime-db.md)  | Install CLI, publish module, connect client   |
-| [AI Integration](docs/tutorials/ai-integration.md)   | How the Vercel AI SDK is used in the codebase |
-| [i18n Setup](docs/tutorials/i18n-setup.md)           | Internationalization with react-i18next       |
+| Guide                                                            | Description                                   |
+| :--------------------------------------------------------------- | :-------------------------------------------- |
+| [Environment Setup](docs/tutorials/setup-env.md)                 | Configure all environment variables           |
+| [Clerk Auth Setup](docs/tutorials/clerk-setup.md)                | Get Clerk API keys step by step               |
+| [Google AI Setup](docs/tutorials/google-ai-setup.md)             | Get Gemini API key from Google AI Studio      |
+| [SpacetimeDB Setup](docs/tutorials/spacetime-db.md)              | Install CLI, publish module, connect client   |
+| [AI Integration](docs/tutorials/ai-integration.md)               | How the Vercel AI SDK is used in the codebase |
+| [i18n Setup](docs/tutorials/i18n-setup.md)                       | Internationalization with react-i18next       |
+| [Railway Deployment Guide](docs/tutorials/railway-deployment.md) | Deploy to Railway                             |
 
 ## License
 

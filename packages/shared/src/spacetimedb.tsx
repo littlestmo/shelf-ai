@@ -64,6 +64,7 @@ export function SpacetimeDBProvider({
             "SELECT * FROM borrow_record",
             "SELECT * FROM notification",
             "SELECT * FROM ai_generation",
+            "SELECT * FROM book_rating",
           ]);
         subRef.current = handle;
       })

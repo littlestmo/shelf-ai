@@ -150,7 +150,16 @@
       "contactNo": "Contact no",
       "scanBarcode": "Scan barcode for ID {{id}}",
       "support": "Library Support: +1 (800) 456-7890",
-      "website": "Website: https://shelfai.up.railway.app"
+      "website": "Website: https://shelfai.up.railway.app",
+      "exportPng": "Export as PNG"
+    },
+    "notifications": {
+      "bellLabel": "Notifications ({{count}} unread)",
+      "panelLabel": "Notifications panel",
+      "title": "Notifications",
+      "close": "Close notifications",
+      "empty": "No notifications",
+      "markRead": "Mark \"{{title}}\" as read"
     },
     "searchInput": {
       "placeholder": "Search..."
@@ -339,11 +348,17 @@
         "generate": "Generate",
         "by": "by {{author}}",
         "synopsis": "Synopsis",
-        "chapters": "Chapters"
+        "chapters": "Chapters",
+        "saved": "✓ Book saved to library",
+        "save": "Save to Library"
       },
       "manual": {
         "select": "Select",
-        "add": "Add Book"
+        "add": "Add Book",
+        "uploadPdf": "Upload PDF (optional)",
+        "dragDrop": "Drag and drop or browse for a PDF file",
+        "browseFiles": "Browse Files",
+        "remove": "Remove"
       }
     }
   },
@@ -354,6 +369,7 @@
         "search": "Search",
         "shelf": "My Shelf",
         "aiSearch": "AI Search",
+        "aiGenerate": "AI Book Generator",
         "contribute": "Contribute",
         "profile": "Profile"
       },
@@ -560,6 +576,24 @@
         "selectBranch": "Select branch",
         "description": "Description",
         "submit": "Submit Book"
+      }
+    },
+    "aiGenerate": {
+      "title": "AI Book Generator",
+      "subtitle": "Generate or manually add books to the library",
+      "modes": {
+        "ai": "AI Generate",
+        "manual": "Manual Entry"
+      },
+      "ai": {
+        "promptTitle": "Describe the book you want to generate",
+        "placeholder": "e.g. A dystopian novel about a society where books are banned...",
+        "generating": "Generating...",
+        "generate": "Generate Book",
+        "synopsis": "Synopsis",
+        "chapters": "Chapters",
+        "saved": "✓ Saved to library",
+        "save": "Save to Library"
       }
     },
     "profile": {

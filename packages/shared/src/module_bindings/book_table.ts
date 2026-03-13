@@ -36,6 +36,8 @@ export default __t.row({
   pages: __t.option(__t.i32()),
   language: __t.option(__t.string()),
   edition: __t.option(__t.string()),
+  pdfData: __t.option(__t.string()).name("pdf_data"),
+  coverData: __t.option(__t.string()).name("cover_data"),
   rating: __t.f64(),
   createdAt: __t.timestamp().name("created_at"),
   updatedAt: __t.timestamp().name("updated_at"),

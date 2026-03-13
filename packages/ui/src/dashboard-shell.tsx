@@ -4,14 +4,7 @@ import React, { useState, useEffect, type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
-import {
-  Menu,
-  X,
-  Search,
-  Bell,
-  ChevronsLeft,
-  ChevronsRight,
-} from "lucide-react";
+import { Menu, X, Search, ChevronsLeft, ChevronsRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import styles from "./dashboard-shell.module.css";
 
@@ -181,16 +174,7 @@ export function DashboardShell({
               />
             </div>
           </div>
-          <div className={styles.headerRight}>
-            {headerRight}
-            <button
-              className={styles.notificationButton}
-              aria-label={t("ui.dashboardShell.notifications")}
-            >
-              <Bell size={18} />
-              <span className={styles.notificationBadge} aria-hidden="true" />
-            </button>
-          </div>
+          <div className={styles.headerRight}>{headerRight}</div>
         </header>
 
         <main

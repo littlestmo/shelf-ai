@@ -22,6 +22,8 @@ pub struct Book {
     pub pages: Option<i32>,
     pub language: Option<String>,
     pub edition: Option<String>,
+    pub pdf_data: Option<String>,
+    pub cover_data: Option<String>,
     pub rating: f64,
     pub created_at: Timestamp,
     pub updated_at: Timestamp,

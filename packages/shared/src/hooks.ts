@@ -101,6 +101,8 @@ export function useAddBook() {
       language?: string;
       edition?: string;
       coverUrl?: string;
+      pdfData?: string;
+      coverData?: string;
       publishedDate: string;
     }) => {
       if (!connection || !connected) return;
@@ -120,6 +122,8 @@ export function useAddBook() {
         language: args.language ?? undefined,
         edition: args.edition ?? undefined,
         coverUrl: args.coverUrl ?? undefined,
+        pdfData: args.pdfData ?? undefined,
+        coverData: args.coverData ?? undefined,
       });
     },
     [connection, connected],
@@ -148,6 +152,8 @@ export function useUpdateBook() {
       language?: string;
       edition?: string;
       coverUrl?: string;
+      pdfData?: string;
+      coverData?: string;
     }) => {
       if (!connection || !connected) return;
       connection.reducers.updateBook({
@@ -169,6 +175,8 @@ export function useUpdateBook() {
         language: args.language ?? undefined,
         edition: args.edition ?? undefined,
         coverUrl: args.coverUrl ?? undefined,
+        pdfData: args.pdfData ?? undefined,
+        coverData: args.coverData ?? undefined,
       });
     },
     [connection, connected],
@@ -399,3 +407,4 @@ export function useMarkNotificationRead() {
 }
 
 export * from "./hooks/use-debounce";
+export * from "./hooks/use-ensure-user";

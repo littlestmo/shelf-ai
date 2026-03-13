@@ -20,6 +20,8 @@ pub fn add_book(
     language: Option<String>,
     edition: Option<String>,
     cover_url: Option<String>,
+    pdf_data: Option<String>,
+    cover_data: Option<String>,
 ) {
     let now = ctx.timestamp;
     let id = generate_id("book", ctx);
@@ -43,6 +45,8 @@ pub fn add_book(
         pages,
         language,
         edition,
+        pdf_data,
+        cover_data,
         rating: 0.0,
         created_at: now,
         updated_at: now,
@@ -71,6 +75,8 @@ pub fn update_book(
     language: Option<String>,
     edition: Option<String>,
     cover_url: Option<String>,
+    pdf_data: Option<String>,
+    cover_data: Option<String>,
 ) {
     let now = ctx.timestamp;
 
@@ -94,6 +100,8 @@ pub fn update_book(
             pages,
             language,
             edition,
+            pdf_data: pdf_data.or(existing.pdf_data),
+            cover_data: cover_data.or(existing.cover_data),
             rating: existing.rating,
             created_at: existing.created_at,
             updated_at: now,

@@ -5,6 +5,7 @@ import { UserButton } from "@clerk/nextjs";
 import { DashboardShell } from "@shelf-ai/ui/dashboard-shell";
 import { ThemeToggle } from "@shelf-ai/ui/theme-toggle";
 import { LanguageToggle } from "@shelf-ai/ui/language-toggle";
+import { UserSyncWrapper } from "./user-sync-wrapper";
 import {
   LayoutDashboard,
   BookOpen,
@@ -73,28 +74,30 @@ export default function DashboardLayout({
       host={SPACETIMEDB_HOST}
       moduleName={SPACETIMEDB_MODULE}
     >
-      <DashboardShell
-        menuItems={MENU}
-        brandName={`Shelf <span class="${styles.brandHighlight}">AI</span>`}
-        brandSub={t("admin.layout.brandSub")}
-        searchPlaceholder={t("admin.layout.searchPlaceholder")}
-        headerRight={
-          <>
-            <ThemeToggle />
-            <LanguageToggle />
-            <UserButton
-              appearance={{
-                elements: { avatarBox: { width: 34, height: 34 } },
-              }}
-            />
-          </>
-        }
-        sidebarFooter={
-          <div className={styles.footer}>{t("admin.layout.footer")}</div>
-        }
-      >
-        {children}
-      </DashboardShell>
+      <UserSyncWrapper>
+        <DashboardShell
+          menuItems={MENU}
+          brandName={`Shelf <span class="${styles.brandHighlight}">AI</span>`}
+          brandSub={t("admin.layout.brandSub")}
+          searchPlaceholder={t("admin.layout.searchPlaceholder")}
+          headerRight={
+            <>
+              <ThemeToggle />
+              <LanguageToggle />
+              <UserButton
+                appearance={{
+                  elements: { avatarBox: { width: 34, height: 34 } },
+                }}
+              />
+            </>
+          }
+          sidebarFooter={
+            <div className={styles.footer}>{t("admin.layout.footer")}</div>
+          }
+        >
+          {children}
+        </DashboardShell>
+      </UserSyncWrapper>
     </SpacetimeDBProvider>
   );
 }
