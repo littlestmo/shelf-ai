@@ -5,6 +5,7 @@ import { UserButton } from "@clerk/nextjs";
 import { DashboardShell, type MenuItem } from "@shelf-ai/ui/dashboard-shell";
 import { ThemeToggle } from "@shelf-ai/ui/theme-toggle";
 import { LanguageToggle } from "@shelf-ai/ui/language-toggle";
+import { UserSyncWrapper } from "@shelf-ai/ui/user-sync-wrapper";
 import { Sparkles, Upload, User, Home, Search, BookMarked } from "lucide-react";
 import { SpacetimeDBProvider } from "@shelf-ai/shared/spacetimedb";
 import { useTranslation } from "react-i18next";
@@ -69,38 +70,41 @@ export default function DashboardLayout({
       host={SPACETIMEDB_HOST}
       moduleName={SPACETIMEDB_MODULE}
     >
-      <DashboardShell
-        menuItems={MENU}
-        brandName={`${t("user.layout.brandPrefix")}<span class="${styles.brandHighlight}">${t("user.layout.brandHighlight")}</span>`}
-        brandSub={t("user.layout.brandSub")}
-        searchPlaceholder={t("user.layout.searchPlaceholder")}
-        headerRight={
-          <>
-            <ThemeToggle />
-            <LanguageToggle />
-            <UserButton
-              appearance={{
-                elements: { avatarBox: { width: 34, height: 34 } },
-              }}
-            />
-          </>
-        }
-        sidebarFooter={
-          <div className={styles.footerContainer}>
-            <span className={styles.footerLink}>
-              {t("user.layout.footer.about")}
-            </span>
-            <span className={styles.footerLink}>
-              {t("user.layout.footer.support")}
-            </span>
-            <span className={styles.footerTerms}>
-              {t("user.layout.footer.terms")}
-            </span>
-          </div>
-        }
-      >
-        {children}
-      </DashboardShell>
+      <UserSyncWrapper>
+        <DashboardShell
+          menuItems={MENU}
+          brandName={`${t("user.layout.brandPrefix")}<span class="${styles.brandHighlight}">${t("user.layout.brandHighlight")}</span>`}
+          brandSub={t("user.layout.brandSub")}
+          searchPlaceholder={t("user.layout.searchPlaceholder")}
+          headerRight={
+            <>
+              <ThemeToggle />
+              <LanguageToggle />
+              <UserButton
+                appearance={{
+                  elements: { avatarBox: { width: 34, height: 34 } },
+                }}
+              />
+            </>
+          }
+          sidebarFooter={
+            <div className={styles.footerContainer}>
+              <span className={styles.footerLink}>
+                {t("user.layout.footer.about")}
+              </span>
+              <span className={styles.footerLink}>
+                {t("user.layout.footer.support")}
+              </span>
+              <span className={styles.footerTerms}>
+                {t("user.layout.footer.terms")}
+              </span>
+            </div>
+          }
+        >
+          {children}
+        </DashboardShell>
+      </UserSyncWrapper>
     </SpacetimeDBProvider>
   );
 }
+
