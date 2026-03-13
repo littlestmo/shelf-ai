@@ -183,13 +183,6 @@ export function DashboardShell({
           </div>
           <div className={styles.headerRight}>
             {headerRight}
-            <button
-              className={styles.notificationButton}
-              aria-label={t("ui.dashboardShell.notifications")}
-            >
-              <Bell size={18} />
-              <span className={styles.notificationBadge} aria-hidden="true" />
-            </button>
           </div>
         </header>
 
