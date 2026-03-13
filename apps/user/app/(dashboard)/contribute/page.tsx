@@ -85,7 +85,8 @@ export default function ContributePage() {
         pages: data.pages,
         language: data.language,
         edition: data.edition,
-        coverUrl: pdfBase64 ? `pdf:${pdfBase64.slice(0, 50)}` : data.coverUrl,
+        coverUrl: data.coverUrl,
+        pdfData: pdfBase64,
       });
 
       reset();

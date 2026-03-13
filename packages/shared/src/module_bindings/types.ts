@@ -55,6 +55,8 @@ export const Book = __t.object("Book", {
   pages: __t.option(__t.i32()),
   language: __t.option(__t.string()),
   edition: __t.option(__t.string()),
+  pdfData: __t.option(__t.string()),
+  coverData: __t.option(__t.string()),
   rating: __t.f64(),
   createdAt: __t.timestamp(),
   updatedAt: __t.timestamp(),
@@ -230,3 +232,4 @@ export const UserStatus = __t.enum("UserStatus", {
   Suspended: __t.unit(),
 });
 export type UserStatus = __Infer<typeof UserStatus>;
+

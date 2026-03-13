@@ -10,7 +10,9 @@ import {
   type Infer as __Infer,
 } from "spacetimedb";
 
-import { BranchStatus } from "./types";
+import {
+  BranchStatus,
+} from "./types";
 
 export default {
   id: __t.string(),

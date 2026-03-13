@@ -10,7 +10,10 @@ import {
   type Infer as __Infer,
 } from "spacetimedb";
 
-import { UserRole, MembershipType } from "./types";
+import {
+  UserRole,
+  MembershipType,
+} from "./types";
 
 export default {
   clerkId: __t.string(),

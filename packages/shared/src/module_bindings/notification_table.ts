@@ -9,7 +9,10 @@ import {
   type AlgebraicTypeType as __AlgebraicTypeType,
   type Infer as __Infer,
 } from "spacetimedb";
-import { NotificationType } from "./types";
+import {
+  NotificationType,
+} from "./types";
+
 
 export default __t.row({
   id: __t.string().primaryKey(),

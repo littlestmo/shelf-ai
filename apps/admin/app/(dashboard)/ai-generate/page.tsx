@@ -111,7 +111,13 @@ export default function AiGeneratePage() {
 
   const onManualSubmit = async (data: AddBookInput) => {
     const formatArr = data.format ? [data.format] : ["Hardcopy"];
-    if (pdfFile && !formatArr.includes("Ebook")) formatArr.push("Ebook");
+    let pdfBase64Data: string | undefined;
+
+    if (pdfFile) {
+      if (!formatArr.includes("Ebook")) formatArr.push("Ebook");
+      pdfBase64Data = await fileToBase64(pdfFile);
+    }
+
     addBook({
       title: data.title,
       author: data.author,
@@ -128,6 +134,7 @@ export default function AiGeneratePage() {
       language: data.language,
       edition: data.edition,
       coverUrl: data.coverUrl,
+      pdfData: pdfBase64Data,
     });
     reset();
     setPdfFile(null);

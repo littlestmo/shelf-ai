@@ -10,7 +10,11 @@ import {
   type Infer as __Infer,
 } from "spacetimedb";
 
-import { BookCategory, BookFormat, BookStatus } from "./types";
+import {
+  BookCategory,
+  BookFormat,
+  BookStatus,
+} from "./types";
 
 export default {
   id: __t.string(),
@@ -37,4 +41,6 @@ export default {
   language: __t.option(__t.string()),
   edition: __t.option(__t.string()),
   coverUrl: __t.option(__t.string()),
+  pdfData: __t.option(__t.string()),
+  coverData: __t.option(__t.string()),
 };

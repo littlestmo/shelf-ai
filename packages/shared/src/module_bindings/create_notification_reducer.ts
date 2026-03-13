@@ -10,7 +10,9 @@ import {
   type Infer as __Infer,
 } from "spacetimedb";
 
-import { NotificationType } from "./types";
+import {
+  NotificationType,
+} from "./types";
 
 export default {
   userId: __t.string(),

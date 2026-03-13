@@ -10,7 +10,9 @@ import {
   type Infer as __Infer,
 } from "spacetimedb";
 
-import { AiGenerationStatus } from "./types";
+import {
+  AiGenerationStatus,
+} from "./types";
 
 export default {
   id: __t.string(),
